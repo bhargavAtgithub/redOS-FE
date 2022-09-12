@@ -36,7 +36,7 @@ const styles = {
             return theme.colors[iconColor][1];
         }
 
-        return theme.colors["OUTER_SPACE"][1];
+        return "";
     },
     containerSize: ({ size }) => {
         if (size) {
@@ -87,8 +87,12 @@ const IconContainer = styled.button`
     background-color: ${styles.background};
     background-image: ${styles.background};
 
+    transition: all 150ms linear;
+
     &:active {
-        background-color: ${styles.activeBackground};
+        // background-color: ${styles.activeBackground};
+        // background-image: ${styles.activeBackground};
+        transform: scale(0.9);
     }
 
     @media (min-width: ${(props) => props.theme.devices["lg"]}) {
@@ -120,13 +124,18 @@ const IconWrapper = styled.div`
     height: ${styles.iconSize}rem;
     width: ${styles.iconSize}rem;
 
+    transition: transform 300ms ease-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
     @media (min-width: ${(props) => props.theme.devices["lg"]}) {
         height: ${styles.iconSizeLg}rem;
         width: ${styles.iconSizeLg}rem;
     }
 
     svg {
-        fill: ${styles.iconColor};
         height: ${styles.iconSize}rem;
         width: ${styles.iconSize}rem;
 
@@ -137,6 +146,7 @@ const IconWrapper = styled.div`
     }
 
     path {
+        fill: ${styles.iconColor};
         stroke: ${styles.iconColor};
     }
 `;
@@ -149,7 +159,7 @@ IconWrapper.defaultProps = {
 
 IconWrapper.propTypes = {
     size: PropTypes.array,
-    color: PropTypes.string,
+    iconColor: PropTypes.string,
     iconBorder: PropTypes.bool,
 };
 

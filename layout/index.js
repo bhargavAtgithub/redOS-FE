@@ -9,7 +9,7 @@ import { ArrowUp, Cross } from "../icons";
 
 import useCursor from "../tokens/cursor/useCursor";
 
-const BaseLayout = () => {
+const BaseLayout = ({ children }) => {
     const cursor = useCursor();
     const theme = useTheme();
     const [mouseOnCross, setMouseOnCross] = useState(false);
@@ -25,6 +25,7 @@ const BaseLayout = () => {
                     layout="fill"
                 />
             </Containers.LogoContainer>
+            {children}
             <Containers.MenuContainer open={openMenu}>
                 <MenuGrid />
                 <Containers.AccessIconContainer

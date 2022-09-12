@@ -63,7 +63,7 @@ export const ToggleStyled = styled.input.attrs(({ props }) => ({
     }
 `;
 
-export const Toggle = (props) => <ToggleStyled {...props} />;
+const Toggle = (props) => <ToggleStyled {...props} />;
 
 Toggle.defaultProps = {
     size: "rg",
@@ -74,3 +74,5 @@ Toggle.propTypes = {
     size: PropTypes.string,
     color: PropTypes.string,
 };
+
+export default Toggle;

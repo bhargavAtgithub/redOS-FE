@@ -10,7 +10,6 @@ export default function Home() {
                 <meta name="description" content="A learning playground." />
                 <link rel="icon" href="/favicons/favicon.ico" />
             </Head>
-            <BaseLayout />
         </>
     );
 }

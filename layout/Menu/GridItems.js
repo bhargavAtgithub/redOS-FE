@@ -6,6 +6,8 @@ export const GridItem = styled.li`
     align-items: ${(props) => props.align || "center"};
     justify-content: ${(props) => props.justify || "center"};
 
+    position: relative;
+
     background-color: ${(props) =>
         props.bg
             ? props.theme.colors[props.bg][1]

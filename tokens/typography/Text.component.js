@@ -67,8 +67,8 @@ export const TextStylesContainer = styled.div`
     font-family: ${(props) => props.family};
     font-weight: ${styles.fontWeight};
 
-    font-size: ${styles.size};
-    line-height: ${styles.height};
+    font-size: ${styles.size}rem;
+    line-height: ${styles.height}rem;
 
     color: ${styles.color};
     text-decoration: ${styles.decoration};
@@ -90,15 +90,17 @@ export const TextStylesContainer = styled.div`
     }
 `;
 
-const Text = (props) => <TextStylesContainer {...props} />;
+const Text = (props) => (
+    <TextStylesContainer {...props}>{props.children}</TextStylesContainer>
+);
 
 Text.defaultProps = {
     family: "Poppins",
     weight: "rg",
-    size: "rg",
+    size: ["rg"],
     decoration: "none",
     align: "left",
-    color: "Night",
+    color: "NIGHT",
 };
 
 Text.propTypes = {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Github, Instagram, LinkedIn, Twitter } from "../../icons";
+import { Github, Instagram, LinkedIn, Moon, Sun, Twitter } from "../../icons";
 import { Icon, Toggle } from "../../tokens";
 
 import { useTheme } from "styled-components";
@@ -7,6 +7,7 @@ import useCursor from "../../tokens/cursor/useCursor";
 
 import GridContainer from "./GridContainer";
 import * as GridItems from "./GridItems";
+import * as ItemContainers from "./Container";
 
 const MenuGrid = () => {
     const theme = useTheme();
@@ -71,6 +72,19 @@ const MenuGrid = () => {
             <GridItems.GridItem />
             <GridItems.GridItem />
             <GridItems.GridItem>
+                <ItemContainers.ThemeIconContainer
+                    style={{ bottom: theme.darkMode ? "35%" : "29%" }}
+                >
+                    {theme.darkMode ? (
+                        <Icon size={["lg"]} border={false} iconColor="">
+                            <Moon />
+                        </Icon>
+                    ) : (
+                        <Icon size={["xl"]} border={false} iconColor="">
+                            <Sun />
+                        </Icon>
+                    )}
+                </ItemContainers.ThemeIconContainer>
                 <Toggle
                     onMouseEnter={() => {
                         cursor.toggleHidden(true);

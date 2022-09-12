@@ -3,6 +3,7 @@ import GlobalStyles from "../themeEngine/global";
 import Cursor from "../tokens/cursor";
 import themeBox from "../themeEngine";
 import CursorProvider from "../tokens/cursor/cursor.provider";
+import BaseLayout from "../layout";
 
 import { ThemeProvider } from "styled-components";
 
@@ -23,9 +24,11 @@ function MyApp({ Component, pageProps }) {
             }}
         >
             <CursorProvider>
-                <GlobalStyles />
                 <Cursor />
-                <Component {...pageProps} />
+                <BaseLayout>
+                    <GlobalStyles />
+                    <Component {...pageProps} />
+                </BaseLayout>
             </CursorProvider>
         </ThemeProvider>
     );
