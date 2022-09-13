@@ -33,6 +33,7 @@ const VARIENTS = {
         rg: "400",
         md: "500",
         b: "700",
+        xb: "800",
     },
     // NOTE: Not ready to mess with letter-spacing yet.
     // letterSpacing: {

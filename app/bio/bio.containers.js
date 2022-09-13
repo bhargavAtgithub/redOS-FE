@@ -12,6 +12,8 @@ export const TextContainer = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: center;
+
+    align-items: baseline;
 `;
 
 export default BioContainer;

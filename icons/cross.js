@@ -12,15 +12,15 @@ const Cross = (props) => (
             d="M13 13L1 1"
             stroke="#30363D"
             stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M13 1L1 13"
             stroke="#30363D"
             stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
     </svg>
 );

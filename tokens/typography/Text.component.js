@@ -59,24 +59,41 @@ export const styles = {
         return VARIENTS.height[size.length > 1 ? size[1] : size[0]];
     },
     color: ({ theme, color }) => {
-        return theme.colors[color][1];
+        return theme.colors[color].length > 1
+            ? theme.colors[color][1]
+            : theme.colors[color];
     },
 };
 
 export const TextStylesContainer = styled.div`
+    display: inline-block;
+
     font-family: ${(props) => props.family};
-    font-weight: ${styles.fontWeight};
+    font-weight: ${styles.weight};
 
     font-size: ${styles.size}rem;
     line-height: ${styles.height}rem;
 
+    align-items: baseline;
+
     color: ${styles.color};
     text-decoration: ${styles.decoration};
+
     text-align: ${(props) => props.align};
     overflow: ${styles.overflow};
     text-overflow: ${styles.textOverflow};
     max-height: ${styles.maxHeight}rem;
     position: relative;
+
+    &:hover {
+        background-color: ${(props) => {
+            return props.theme.colors[props.hoverBackground] &&
+                props.theme.colors[props.hoverBackground].length === 4
+                ? props.theme.colors[props.hoverBackground][3]
+                : props.theme.colors[props.hoverBackground];
+        }};
+    }
+
     &::after {
         content: ${styles.ellipsis};
         position: absolute;
@@ -96,17 +113,18 @@ const Text = (props) => (
 
 Text.defaultProps = {
     family: "Poppins",
-    weight: "rg",
+    weight: "l",
     size: ["rg"],
     decoration: "none",
     align: "left",
-    color: "NIGHT",
+    color: "P",
+    hoverBackground: "",
 };
 
 Text.propTypes = {
     family: PropTypes.oneOf(Object.keys(VARIENTS.family)),
     weight: PropTypes.oneOf(Object.keys(VARIENTS.weight)),
-    size: PropTypes.oneOf(Object.keys(VARIENTS.size)),
+    size: PropTypes.array,
     lineHeight: PropTypes.oneOf(Object.keys(VARIENTS.height)),
     decoration: PropTypes.oneOf(["_", "-", "none"]),
     align: PropTypes.oneOf([
@@ -119,6 +137,7 @@ Text.propTypes = {
     ]),
     letterSpacing: PropTypes.number,
     maxLines: PropTypes.number,
+    hoverBackground: PropTypes.string,
 };
 
 export default Text;
