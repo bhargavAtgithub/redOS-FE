@@ -8,7 +8,7 @@
  * @returns
  */
 
-export const getMargins = ({ xy, x, y, t, r, b, l }, device) => {
+const getMargins = ({ xy, x, y, t, r, b, l }, device) => {
     let margins = { t: 0, r: 0, b: 0, l: 0 };
 
     if (
@@ -48,3 +48,5 @@ export const getMargins = ({ xy, x, y, t, r, b, l }, device) => {
 
     return `${margins.t}rem ${margins.r}rem ${margins.b}rem ${margins.l}rem`;
 };
+
+export default getMargins;
