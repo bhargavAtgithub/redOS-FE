@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const MenuContainer = styled.nav`
     width: 100vw;
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -24,7 +25,7 @@ const MenuContainer = styled.nav`
     overflow-y: ${(props) => (props.open ? "scroll" : "none")};
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
-        top: ${(props) => (props.open ? "0%" : "80%")};
+        top: ${(props) => (props.open ? "0%" : "90%")};
         bottom: 0;
 
         padding: 24rem;

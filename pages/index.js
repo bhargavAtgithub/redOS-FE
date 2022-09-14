@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import BaseLayout from "../layout";
+import BioScreen from "./bio";
 
 export default function Home() {
     return (
@@ -10,6 +9,7 @@ export default function Home() {
                 <meta name="description" content="A learning playground." />
                 <link rel="icon" href="/favicons/favicon.ico" />
             </Head>
+            <BioScreen />
         </>
     );
 }

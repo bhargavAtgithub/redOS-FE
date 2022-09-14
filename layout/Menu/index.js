@@ -1,6 +1,17 @@
 import React, { useState } from "react";
-import { Github, Instagram, LinkedIn, Moon, Sun, Twitter } from "../../icons";
-import { Icon, Toggle } from "../../tokens";
+import Link from "next/link";
+import Image from "next/image";
+import {
+    Arrow,
+    Github,
+    Instagram,
+    LinkedIn,
+    Moon,
+    Sun,
+    Twitter,
+} from "../../icons";
+import { Icon, Spacer, Toggle } from "../../tokens";
+import { StickerContainer, StickerLink } from "./ItemContainers";
 
 import { useTheme } from "styled-components";
 import useCursor from "../../tokens/cursor/useCursor";
@@ -18,51 +29,86 @@ const MenuGrid = () => {
         <GridContainer>
             <GridItems.SocialGrid>
                 <GridItems.SocialGridItem>
-                    <Icon
-                        color="TWITTER"
-                        background={true}
-                        border={false}
-                        size={["md", "lg"]}
-                        iconColor="SNOW"
+                    <a
+                        href={"https://twitter.com/hidden_stack"}
+                        target="_blank"
                     >
-                        <Twitter />
-                    </Icon>
+                        <Icon
+                            color="TWITTER"
+                            background={true}
+                            border={false}
+                            size={["md", "lg"]}
+                            iconColor="SNOW"
+                        >
+                            <Twitter />
+                        </Icon>
+                    </a>
                 </GridItems.SocialGridItem>
                 <GridItems.SocialGridItem>
-                    <Icon
-                        color="NIGHT"
-                        background={true}
-                        border={false}
-                        size={["md", "lg"]}
-                        iconColor="NIGHT"
+                    <a
+                        href="https://github.com/bhargavAtgithub"
+                        target="_blank"
                     >
-                        <Github />
-                    </Icon>
+                        <Icon
+                            color="NIGHT"
+                            background={true}
+                            border={false}
+                            size={["md", "lg"]}
+                            iconColor="NIGHT"
+                        >
+                            <Github />
+                        </Icon>
+                    </a>
                 </GridItems.SocialGridItem>
                 <GridItems.SocialGridItem>
-                    <Icon
-                        color="INSTAGRAM"
-                        background={true}
-                        border={false}
-                        size={["md", "lg"]}
-                        iconColor="SNOW"
+                    <a
+                        href="https://www.instagram.com/hiddenstack/"
+                        target={"_blank"}
                     >
-                        <Instagram />
-                    </Icon>
+                        <Icon
+                            color="INSTAGRAM"
+                            background={true}
+                            border={false}
+                            size={["md", "lg"]}
+                            iconColor="SNOW"
+                        >
+                            <Instagram />
+                        </Icon>
+                    </a>
                 </GridItems.SocialGridItem>
                 <GridItems.SocialGridItem>
-                    <Icon
-                        color="LINKEDIN"
-                        background={true}
-                        border={false}
-                        size={["md", "lg"]}
-                        iconColor="SNOW"
-                    >
-                        <LinkedIn />
-                    </Icon>
+                    <a href="https://www.linkedin.com/in/bhargav-reddy-vangara/">
+                        <Icon
+                            color="LINKEDIN"
+                            background={true}
+                            border={false}
+                            size={["md", "lg"]}
+                            iconColor="SNOW"
+                        >
+                            <LinkedIn />
+                        </Icon>
+                    </a>
                 </GridItems.SocialGridItem>
             </GridItems.SocialGrid>
-            <GridItems.GridItem />
+            <GridItems.GridItem>
+                <StickerLink
+                    href="https://bhargav99.fambase.com"
+                    target={"_blank"}
+                >
+                    <StickerContainer>
+                        <Image src="/icons/fambaseLogo.png" layout="fill" />
+                    </StickerContainer>
+                    <Spacer y={[5]} />
+                    <Icon
+                        size={["rg"]}
+                        rotate={320}
+                        hoverColor={"RED"}
+                        hover={true}
+                    >
+                        <Arrow />
+                    </Icon>
+                </StickerLink>
+            </GridItems.GridItem>
             <GridItems.GridItem />
             <GridItems.GridItem />
             <GridItems.ContentGridItem />

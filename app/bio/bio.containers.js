@@ -5,7 +5,15 @@ const BioContainer = styled.div`
     flex-direction: column;
 
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
+
+    height: 100%;
+
+    padding-top: 24rem;
+
+    @media (min-width: ${(props) => props.theme.devices.lg}) {
+        padding-top: 32rem;
+    }
 `;
 
 export const TextContainer = styled.div`

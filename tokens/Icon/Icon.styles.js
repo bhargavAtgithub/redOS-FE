@@ -31,6 +31,15 @@ const styles = {
             return theme.colors["OUTER_SPACE"][3];
         }
     },
+    hoverBackground: ({ theme, hoverColor, hover }) => {
+        if (hover) {
+            if (hoverColor) {
+                return theme.colors[hoverColor][3];
+            } else {
+                return theme.colors["OUTER_SPACE"][3];
+            }
+        }
+    },
     iconColor: ({ theme, iconColor }) => {
         if (iconColor) {
             return theme.colors[iconColor][1];
@@ -87,12 +96,19 @@ const IconContainer = styled.button`
     background-color: ${styles.background};
     background-image: ${styles.background};
 
+    transform: rotate(${(props) => props.rotate}deg);
+
     transition: all 150ms linear;
 
     &:active {
         // background-color: ${styles.activeBackground};
         // background-image: ${styles.activeBackground};
         transform: scale(0.9);
+    }
+
+    &:hover {
+        background-color: ${styles.hoverBackground};
+        background-image: ${styles.hoverBackground};
     }
 
     @media (min-width: ${(props) => props.theme.devices["lg"]}) {
@@ -106,6 +122,9 @@ IconContainer.defaultProps = {
     color: "OUTER_SPACE",
     backgorund: false,
     border: true,
+    rotate: 0,
+    hover: false,
+    hoverColor: "OUTER_SPACE",
 };
 
 IconContainer.propTypes = {
@@ -113,6 +132,9 @@ IconContainer.propTypes = {
     color: PropTypes.string,
     backgorund: PropTypes.bool,
     border: PropTypes.bool,
+    rotate: PropTypes.number,
+    hover: PropTypes.bool,
+    hoverColor: PropTypes.string,
 };
 
 const IconWrapper = styled.div`

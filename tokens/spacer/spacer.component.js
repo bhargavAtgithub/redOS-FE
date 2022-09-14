@@ -23,7 +23,7 @@ const SpacerStyles = styled.div`
         ${(props) =>
             props.hasChildren
                 ? `margin: ${getMargins(props, 1)};`
-                : `height: ${
+                : `padding-top: ${
                       typeof props.y === "object" && props.y !== null
                           ? props.y[Number(props.length > 1)]
                           : 1

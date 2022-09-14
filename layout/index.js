@@ -4,7 +4,7 @@ import { useTheme } from "styled-components";
 
 import * as Containers from "./containers";
 import MenuGrid from "./Menu";
-import { Icon } from "../tokens";
+import { Icon, Spacer } from "../tokens";
 import { ArrowUp, Cross } from "../icons";
 
 import useCursor from "../tokens/cursor/useCursor";
@@ -16,42 +16,48 @@ const BaseLayout = ({ children }) => {
     const [openMenu, setOpenMenu] = useState(false);
 
     return (
-        <Containers.MainContainer>
-            <Containers.LogoContainer>
-                <Image
-                    src={`/assets/b-red-lg-${
-                        theme.darkMode ? "dark" : "light"
-                    }.png`}
-                    layout="fill"
-                />
-            </Containers.LogoContainer>
-            {children}
-            <Containers.MenuContainer open={openMenu}>
-                <MenuGrid />
-                <Containers.AccessIconContainer
-                    onMouseEnter={() => {
-                        cursor.toggleHidden(true);
-                        setMouseOnCross(true);
-                        console.log("enter");
-                    }}
-                    onMouseLeave={() => {
-                        cursor.toggleHidden(false);
-                        setMouseOnCross(false);
-                    }}
-                    onClick={() => {
-                        setOpenMenu(!openMenu);
-                        console.log("clicked");
-                    }}
-                >
-                    <Icon
-                        color={mouseOnCross ? "RED" : ""}
-                        iconColor={mouseOnCross ? "RED" : ""}
+        <>
+            <Containers.MainContainer>
+                <Containers.LogoContainer>
+                    <Image
+                        src={`/assets/b-red-lg-${
+                            theme.darkMode ? "dark" : "light"
+                        }.png`}
+                        layout="responsive"
+                        width="8rem"
+                        height="7rem"
+                    />
+                </Containers.LogoContainer>
+                {children}
+                <Containers.MenuContainer open={openMenu}>
+                    <MenuGrid />
+                    <Spacer y={[10]} x={[5]} />
+                    <Containers.FooterContainer />
+                    <Containers.AccessIconContainer
+                        onMouseEnter={() => {
+                            cursor.toggleHidden(true);
+                            setMouseOnCross(true);
+                            console.log("enter");
+                        }}
+                        onMouseLeave={() => {
+                            cursor.toggleHidden(false);
+                            setMouseOnCross(false);
+                        }}
+                        onClick={() => {
+                            setOpenMenu(!openMenu);
+                            console.log("clicked");
+                        }}
                     >
-                        {openMenu ? <Cross /> : <ArrowUp />}
-                    </Icon>
-                </Containers.AccessIconContainer>
-            </Containers.MenuContainer>
-        </Containers.MainContainer>
+                        <Icon
+                            color={mouseOnCross ? "RED" : ""}
+                            iconColor={mouseOnCross ? "RED" : ""}
+                        >
+                            {openMenu ? <Cross /> : <ArrowUp />}
+                        </Icon>
+                    </Containers.AccessIconContainer>
+                </Containers.MenuContainer>
+            </Containers.MainContainer>
+        </>
     );
 };
 

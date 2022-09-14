@@ -13,7 +13,7 @@ const BioScreen = () => {
             <TextContainer>
                 <Text>I'm </Text>
                 <Spacer x={[1]} t={[2]}>
-                    <Text weight={"bold"} size={["lg"]}>
+                    <Text weight={"md"} size={["lg"]}>
                         Bhargav
                     </Text>
                 </Spacer>
