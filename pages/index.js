@@ -1,5 +1,5 @@
-import Head from "next/head";
-import BioScreen from "./bio";
+import Head from 'next/head';
+import BioScreen from './bio';
 
 export default function Home() {
     return (

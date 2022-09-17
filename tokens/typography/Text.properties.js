@@ -1,6 +1,6 @@
 const VARIENTS = {
     family: {
-        Poppins: "Poppins",
+        Poppins: 'Poppins',
     },
     size: {
         mi: 1.44, // 11.52
@@ -29,11 +29,11 @@ const VARIENTS = {
         h1: 12,
     },
     weight: {
-        l: "300",
-        rg: "400",
-        md: "500",
-        b: "700",
-        xb: "800",
+        l: '300',
+        rg: '400',
+        md: '500',
+        b: '700',
+        xb: '800',
     },
     // NOTE: Not ready to mess with letter-spacing yet.
     // letterSpacing: {

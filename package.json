@@ -1,23 +1,39 @@
 {
-  "name": "red-fe",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.3.0",
-    "prop-types": "15.8.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "styled-components": "5.3.5",
-    "swr": "1.3.0"
-  },
-  "devDependencies": {
-    "eslint": "8.23.0",
-    "eslint-config-next": "12.3.0"
-  }
+    "name": "red-fe",
+    "author": {
+        "name": "Bhargav"
+    },
+    "description": "A playground, an experiments lab and my portfolio.",
+    "version": "0.1.0",
+    "private": true,
+    "engines": {
+        "node": ">=16.0.0",
+        "yarn": ">=1.22.0",
+        "npm": "please-use-yarn"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "prettier": "prettier --write .",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "1.35.6",
+        "next": "12.3.0",
+        "prop-types": "15.8.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "styled-components": "5.3.5",
+        "swr": "1.3.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "17.1.2",
+        "@commitlint/config-conventional": "17.1.0",
+        "eslint": "8.23.0",
+        "eslint-config-next": "12.3.0",
+        "husky": "8.0.1",
+        "prettier": "2.7.1"
+    }
 }

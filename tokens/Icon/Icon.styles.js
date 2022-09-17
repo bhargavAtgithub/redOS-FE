@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import SIZES from "./Icon.properties";
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import SIZES from './Icon.properties';
 
 const styles = {
     border: ({ theme, color, border }) => {
@@ -8,27 +8,27 @@ const styles = {
             if (color) {
                 return `1px solid ${theme.colors[color][1]}`;
             } else {
-                return `1px solid ${theme.colors["OUTER_SPACE"][1]}`;
+                return `1px solid ${theme.colors['OUTER_SPACE'][1]}`;
             }
         }
-        return "none";
+        return 'none';
     },
     background: ({ theme, color, background }) => {
         if (background) {
             if (color) {
                 return theme.colors[color][1];
             } else {
-                return theme.colors["OUTER_SPACE"][1];
+                return theme.colors['OUTER_SPACE'][1];
             }
         } else {
-            return "transparent";
+            return 'transparent';
         }
     },
     activeBackground: ({ theme, color }) => {
         if (color) {
             return theme.colors[color][3];
         } else {
-            return theme.colors["OUTER_SPACE"][3];
+            return theme.colors['OUTER_SPACE'][3];
         }
     },
     hoverBackground: ({ theme, hoverColor, hover }) => {
@@ -36,7 +36,7 @@ const styles = {
             if (hoverColor) {
                 return theme.colors[hoverColor][3];
             } else {
-                return theme.colors["OUTER_SPACE"][3];
+                return theme.colors['OUTER_SPACE'][3];
             }
         }
     },
@@ -45,13 +45,13 @@ const styles = {
             return theme.colors[iconColor][1];
         }
 
-        return "";
+        return '';
     },
     containerSize: ({ size }) => {
         if (size) {
             return SIZES.container[size[0]];
         } else {
-            return SIZES.container["rg"];
+            return SIZES.container['rg'];
         }
     },
     containerSizeLg: ({ size }) => {
@@ -61,14 +61,14 @@ const styles = {
             }
             return SIZES.container[size[0]];
         } else {
-            return SIZES.container["rg"];
+            return SIZES.container['rg'];
         }
     },
     iconSize: ({ size }) => {
         if (size) {
             return SIZES.icon[size[0]];
         } else {
-            return SIZES.icon["rg"];
+            return SIZES.icon['rg'];
         }
     },
     iconSizeLg: ({ size }) => {
@@ -78,7 +78,7 @@ const styles = {
             }
             return SIZES.icon[size[0]];
         } else {
-            return SIZES.icon["rg"];
+            return SIZES.icon['rg'];
         }
     },
 };
@@ -111,20 +111,20 @@ const IconContainer = styled.button`
         background-image: ${styles.hoverBackground};
     }
 
-    @media (min-width: ${(props) => props.theme.devices["lg"]}) {
+    @media (min-width: ${(props) => props.theme.devices['lg']}) {
         height: ${styles.containerSizeLg}rem;
         width: ${styles.containerSizeLg}rem;
     }
 `;
 
 IconContainer.defaultProps = {
-    size: ["rg"],
-    color: "OUTER_SPACE",
+    size: ['rg'],
+    color: 'OUTER_SPACE',
     backgorund: false,
     border: true,
     rotate: 0,
     hover: false,
-    hoverColor: "OUTER_SPACE",
+    hoverColor: 'OUTER_SPACE',
 };
 
 IconContainer.propTypes = {
@@ -152,7 +152,7 @@ const IconWrapper = styled.div`
         transform: scale(1.1);
     }
 
-    @media (min-width: ${(props) => props.theme.devices["lg"]}) {
+    @media (min-width: ${(props) => props.theme.devices['lg']}) {
         height: ${styles.iconSizeLg}rem;
         width: ${styles.iconSizeLg}rem;
     }
@@ -161,7 +161,7 @@ const IconWrapper = styled.div`
         height: ${styles.iconSize}rem;
         width: ${styles.iconSize}rem;
 
-        @media (min-width: ${(props) => props.theme.devices["lg"]}) {
+        @media (min-width: ${(props) => props.theme.devices['lg']}) {
             height: ${styles.iconSizeLg}rem;
             width: ${styles.iconSizeLg}rem;
         }
@@ -174,8 +174,8 @@ const IconWrapper = styled.div`
 `;
 
 IconWrapper.defaultProps = {
-    size: ["rg"],
-    iconColor: "OUTER_SPACE",
+    size: ['rg'],
+    iconColor: 'OUTER_SPACE',
     iconBorder: true,
 };
 

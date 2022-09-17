@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import {
     Arrow,
     Github,
@@ -9,16 +9,16 @@ import {
     Moon,
     Sun,
     Twitter,
-} from "../../icons";
-import { Icon, Spacer, Toggle } from "../../tokens";
-import { StickerContainer, StickerLink } from "./ItemContainers";
+} from '../../icons';
+import { Icon, Spacer, Toggle } from '../../tokens';
+import { StickerContainer, StickerLink } from './ItemContainers';
 
-import { useTheme } from "styled-components";
-import useCursor from "../../tokens/cursor/useCursor";
+import { useTheme } from 'styled-components';
+import useCursor from '../../tokens/cursor/useCursor';
 
-import GridContainer from "./GridContainer";
-import * as GridItems from "./GridItems";
-import * as ItemContainers from "./Container";
+import GridContainer from './GridContainer';
+import * as GridItems from './GridItems';
+import * as ItemContainers from './Container';
 
 const MenuGrid = () => {
     const theme = useTheme();
@@ -30,14 +30,14 @@ const MenuGrid = () => {
             <GridItems.SocialGrid>
                 <GridItems.SocialGridItem>
                     <a
-                        href={"https://twitter.com/hidden_stack"}
+                        href={'https://twitter.com/hidden_stack'}
                         target="_blank"
                     >
                         <Icon
                             color="TWITTER"
                             background={true}
                             border={false}
-                            size={["md", "lg"]}
+                            size={['md', 'lg']}
                             iconColor="SNOW"
                         >
                             <Twitter />
@@ -53,7 +53,7 @@ const MenuGrid = () => {
                             color="NIGHT"
                             background={true}
                             border={false}
-                            size={["md", "lg"]}
+                            size={['md', 'lg']}
                             iconColor="NIGHT"
                         >
                             <Github />
@@ -63,13 +63,13 @@ const MenuGrid = () => {
                 <GridItems.SocialGridItem>
                     <a
                         href="https://www.instagram.com/hiddenstack/"
-                        target={"_blank"}
+                        target={'_blank'}
                     >
                         <Icon
                             color="INSTAGRAM"
                             background={true}
                             border={false}
-                            size={["md", "lg"]}
+                            size={['md', 'lg']}
                             iconColor="SNOW"
                         >
                             <Instagram />
@@ -82,7 +82,7 @@ const MenuGrid = () => {
                             color="LINKEDIN"
                             background={true}
                             border={false}
-                            size={["md", "lg"]}
+                            size={['md', 'lg']}
                             iconColor="SNOW"
                         >
                             <LinkedIn />
@@ -93,16 +93,16 @@ const MenuGrid = () => {
             <GridItems.GridItem>
                 <StickerLink
                     href="https://bhargav99.fambase.com"
-                    target={"_blank"}
+                    target={'_blank'}
                 >
                     <StickerContainer>
                         <Image src="/icons/fambaseLogo.png" layout="fill" />
                     </StickerContainer>
                     <Spacer y={[5]} />
                     <Icon
-                        size={["rg"]}
+                        size={['rg']}
                         rotate={320}
-                        hoverColor={"RED"}
+                        hoverColor={'RED'}
                         hover={true}
                     >
                         <Arrow />
@@ -119,14 +119,14 @@ const MenuGrid = () => {
             <GridItems.GridItem />
             <GridItems.GridItem>
                 <ItemContainers.ThemeIconContainer
-                    style={{ bottom: theme.darkMode ? "35%" : "29%" }}
+                    style={{ bottom: theme.darkMode ? '35%' : '29%' }}
                 >
                     {theme.darkMode ? (
-                        <Icon size={["lg"]} border={false} iconColor="">
+                        <Icon size={['lg']} border={false} iconColor="">
                             <Moon />
                         </Icon>
                     ) : (
-                        <Icon size={["xl"]} border={false} iconColor="">
+                        <Icon size={['xl']} border={false} iconColor="">
                             <Sun />
                         </Icon>
                     )}
@@ -135,7 +135,7 @@ const MenuGrid = () => {
                     onMouseEnter={() => {
                         cursor.toggleHidden(true);
                         setMouseOnToggle(true);
-                        console.log("enter");
+                        console.log('enter');
                     }}
                     onMouseLeave={() => {
                         cursor.toggleHidden(false);
@@ -143,9 +143,9 @@ const MenuGrid = () => {
                     }}
                     onClick={() => {
                         theme.toggleTheme();
-                        console.log("clicked");
+                        console.log('clicked');
                     }}
-                    color={!theme.darkMode ? "SNOW" : "RED"}
+                    color={!theme.darkMode ? 'SNOW' : 'RED'}
                 />
             </GridItems.GridItem>
         </GridContainer>

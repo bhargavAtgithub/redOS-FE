@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
-import Image from "next/image";
-import CursorStyle from "./cursor.styles";
-import useCursor from "./useCursor";
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import Image from 'next/image';
+import CursorStyle from './cursor.styles';
+import useCursor from './useCursor';
 
 const Cursor = () => {
     const cursor = useCursor();

@@ -1,22 +1,22 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const GridItem = styled.li`
     display: flex;
     flex-direction: column;
-    align-items: ${(props) => props.align || "center"};
-    justify-content: ${(props) => props.justify || "center"};
+    align-items: ${(props) => props.align || 'center'};
+    justify-content: ${(props) => props.justify || 'center'};
 
     position: relative;
 
     background-color: ${(props) =>
         props.bg
             ? props.theme.colors[props.bg][1]
-            : props.theme.colors["CARD"]};
+            : props.theme.colors['CARD']};
     background-image: ${(props) =>
         props.bg
             ? props.theme.colors[props.bg][1]
-            : props.theme.colors["CARD"]};
-    border: 1px solid ${(props) => props.theme.colors["BORDER"]};
+            : props.theme.colors['CARD']};
+    border: 1px solid ${(props) => props.theme.colors['BORDER']};
     border-radius: 4rem;
 `;
 

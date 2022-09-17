@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import getMargins from "./spacer.utils";
+import getMargins from './spacer.utils';
 
 const SpacerStyles = styled.div`
     background-color: transparent;
@@ -11,25 +11,25 @@ const SpacerStyles = styled.div`
         props.hasChildren
             ? `margin: ${getMargins(props, 0)};`
             : `height: ${
-                  typeof props.y === "object" && props.y !== null
+                  typeof props.y === 'object' && props.y !== null
                       ? props.y[0]
                       : 1
               }rem;
            width: ${
-               typeof props.x === "object" && props.x !== null ? props.x[0] : 1
+               typeof props.x === 'object' && props.x !== null ? props.x[0] : 1
            }rem;`}
 
-    @media (min-width: ${(props) => props.theme.devices["lg"]}) {
+    @media (min-width: ${(props) => props.theme.devices['lg']}) {
         ${(props) =>
             props.hasChildren
                 ? `margin: ${getMargins(props, 1)};`
                 : `padding-top: ${
-                      typeof props.y === "object" && props.y !== null
+                      typeof props.y === 'object' && props.y !== null
                           ? props.y[Number(props.length > 1)]
                           : 1
                   }rem;
              width: ${
-                 typeof props.x === "object" && props.x !== null
+                 typeof props.x === 'object' && props.x !== null
                      ? props.x[Number(props.length > 1)]
                      : 1
              }rem;`}

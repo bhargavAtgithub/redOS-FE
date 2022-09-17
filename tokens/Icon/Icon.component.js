@@ -1,5 +1,5 @@
-import React from "react";
-import { IconContainer, IconWrapper } from "./Icon.styles";
+import React from 'react';
+import { IconContainer, IconWrapper } from './Icon.styles';
 
 const Icon = ({ children, ...props }) => {
     return (

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import { useTheme } from "styled-components";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { useTheme } from 'styled-components';
 
-import * as Containers from "./containers";
-import MenuGrid from "./Menu";
-import { Icon, Spacer } from "../tokens";
-import { ArrowUp, Cross } from "../icons";
+import * as Containers from './containers';
+import MenuGrid from './Menu';
+import { Icon, Spacer } from '../tokens';
+import { ArrowUp, Cross } from '../icons';
 
-import useCursor from "../tokens/cursor/useCursor";
+import useCursor from '../tokens/cursor/useCursor';
 
 const BaseLayout = ({ children }) => {
     const cursor = useCursor();
@@ -21,7 +21,7 @@ const BaseLayout = ({ children }) => {
                 <Containers.LogoContainer>
                     <Image
                         src={`/assets/b-red-lg-${
-                            theme.darkMode ? "dark" : "light"
+                            theme.darkMode ? 'dark' : 'light'
                         }.png`}
                         layout="responsive"
                         width="8rem"
@@ -37,7 +37,7 @@ const BaseLayout = ({ children }) => {
                         onMouseEnter={() => {
                             cursor.toggleHidden(true);
                             setMouseOnCross(true);
-                            console.log("enter");
+                            console.log('enter');
                         }}
                         onMouseLeave={() => {
                             cursor.toggleHidden(false);
@@ -45,12 +45,12 @@ const BaseLayout = ({ children }) => {
                         }}
                         onClick={() => {
                             setOpenMenu(!openMenu);
-                            console.log("clicked");
+                            console.log('clicked');
                         }}
                     >
                         <Icon
-                            color={mouseOnCross ? "RED" : ""}
-                            iconColor={mouseOnCross ? "RED" : ""}
+                            color={mouseOnCross ? 'RED' : ''}
+                            iconColor={mouseOnCross ? 'RED' : ''}
                         >
                             {openMenu ? <Cross /> : <ArrowUp />}
                         </Icon>

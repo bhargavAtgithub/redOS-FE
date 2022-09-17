@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Image from "next/image";
-import styled from "styled-components";
-import SIZES from "./avatar.properties";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Image from 'next/image';
+import styled from 'styled-components';
+import SIZES from './avatar.properties';
 
 const AvatarStyles = styled.div`
     display: flex;
@@ -16,14 +16,14 @@ const AvatarStyles = styled.div`
     position: relative;
 `;
 
-const Avatar = ({ src, size }) => (
+const Avatar = ({ src, size, placeholder }) => (
     <AvatarStyles size={size}>
-        <Image src={src} layout="fill" />
+        <Image src={src} layout="fill" placeholder={placeholder} />
     </AvatarStyles>
 );
 
 Avatar.defaultProps = {
-    size: "rg",
+    size: 'rg',
 };
 
 Avatar.propTypes = {

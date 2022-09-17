@@ -1,4 +1,4 @@
-import { COLORS } from "../tokens";
+import { COLORS } from '../tokens';
 
 export const RED_THEME = {
     BASE: [COLORS.FANTASY[1]],

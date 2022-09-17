@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import TOGGLE_SIZES from "./toggle.properties";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import TOGGLE_SIZES from './toggle.properties';
 
 const styles = {
-    getBackground: ({ theme, color }) => theme.colors["CARD"],
+    getBackground: ({ theme, color }) => theme.colors['CARD'],
     getBeforeProperties: ({ theme, size, color }) => {
         const height = TOGGLE_SIZES[size].h;
         const left = (0.25 * height) / 2;
-        const backgroundColor = theme.colors["SNOW"][3];
+        const backgroundColor = theme.colors['SNOW'][3];
         const boxShadow = `0px 0px 6px rgba(188, 192, 200, 0.5);`;
         return `
         width: ${height * 0.75}rem;
@@ -25,12 +25,12 @@ const styles = {
         const { w, h } = TOGGLE_SIZES[size];
         return w - (h * 1.75) / 2;
     },
-    hoverBorder: ({ theme, color }) => theme.colors["NIGHT"][3],
+    hoverBorder: ({ theme, color }) => theme.colors['NIGHT'][3],
 };
 
 export const ToggleStyled = styled.input.attrs(({ props }) => ({
     ...props,
-    type: "checkbox",
+    type: 'checkbox',
 }))`
     position: relative;
     width: ${(props) => TOGGLE_SIZES[props.size].w}rem;
@@ -49,7 +49,7 @@ export const ToggleStyled = styled.input.attrs(({ props }) => ({
 
     &::before {
         position: absolute;
-        content: "";
+        content: '';
         transition: left 300ms;
         ${styles.getBeforeProperties}
     }
@@ -66,8 +66,8 @@ export const ToggleStyled = styled.input.attrs(({ props }) => ({
 const Toggle = (props) => <ToggleStyled {...props} />;
 
 Toggle.defaultProps = {
-    size: "rg",
-    color: "RED",
+    size: 'rg',
+    color: 'RED',
 };
 
 Toggle.propTypes = {

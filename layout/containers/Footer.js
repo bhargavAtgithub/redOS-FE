@@ -1,8 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import styled, { useTheme } from "styled-components";
+import React from 'react';
+import Image from 'next/image';
+import styled, { useTheme } from 'styled-components';
 
-import { Text, Spacer } from "../../tokens";
+import { Text, Spacer } from '../../tokens';
 
 const FooterStyles = styled.section`
     display: flex;
@@ -13,7 +13,7 @@ const FooterStyles = styled.section`
     min-height: 30rem;
     width: 100%;
 
-    // background-color: ${(props) => props.theme.colors["BASE"]};
+    // background-color: ${(props) => props.theme.colors['BASE']};
 `;
 
 const LogoContainer = styled.div`
@@ -45,7 +45,7 @@ const FooterContainer = () => {
                 <LogoWrapper>
                     <Image
                         src={`/assets/b-red-lg-${
-                            theme.darkMode ? "dark" : "light"
+                            theme.darkMode ? 'dark' : 'light'
                         }.png`}
                         layout="responsive"
                         width="8rem"
@@ -58,7 +58,7 @@ const FooterContainer = () => {
                 Rights Reserved.
             </Text> */}
             <Text>V Bhargav Reddy</Text>
-            <Text size={["mi"]}>Full Stack Engineer based in India</Text>
+            <Text size={['mi']}>Full Stack Engineer based in India</Text>
         </FooterStyles>
     );
 };

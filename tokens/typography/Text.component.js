@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
-import { VARIENTS } from "./Text.properties";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import { VARIENTS } from './Text.properties';
 
 export const styles = {
     decoration: ({ decoration }) => {
         if (decoration) {
-            if (decoration === "_") {
-                return "underline";
-            } else if (decoration === "-") {
-                return "line-through";
+            if (decoration === '_') {
+                return 'underline';
+            } else if (decoration === '-') {
+                return 'line-through';
             }
         }
-        return "none";
+        return 'none';
     },
     maxHeight: ({ theme, size, maxLines }) => {
         if (maxLines) {
@@ -20,31 +20,31 @@ export const styles = {
             const maxHeight = parseFloat(lineHeight) * maxLines;
             return maxHeight;
         }
-        return "initial";
+        return 'initial';
     },
     overflow: ({ maxLines }) => {
         if (maxLines) {
-            return "hidden";
+            return 'hidden';
         }
-        return "initial";
+        return 'initial';
     },
     textOverflow: ({ maxLines }) => {
         if (maxLines) {
-            return "ellipsis";
+            return 'ellipsis';
         }
-        return "initial";
+        return 'initial';
     },
     ellipsis: ({ maxLines }) => {
         if (maxLines) {
-            return "...";
+            return '...';
         }
-        return "";
+        return '';
     },
     weight: ({ theme, weight }) => {
         if (weight) {
             return VARIENTS.weight[weight];
         }
-        return VARIENTS.weight["rg"];
+        return VARIENTS.weight['rg'];
     },
     size: ({ size }) => {
         return VARIENTS.size[size[0]];
@@ -101,7 +101,7 @@ export const TextStylesContainer = styled.div`
         right: 0rem;
     }
 
-    @media (min-width: ${(props) => props.theme.devices["lg"]}) {
+    @media (min-width: ${(props) => props.theme.devices['lg']}) {
         font-size: ${styles.lgSize};
         lineheight: ${styles.lgHeight};
     }
@@ -112,13 +112,13 @@ const Text = (props) => (
 );
 
 Text.defaultProps = {
-    family: "Poppins",
-    weight: "l",
-    size: ["rg"],
-    decoration: "none",
-    align: "left",
-    color: "P",
-    hoverBackground: "",
+    family: 'Poppins',
+    weight: 'l',
+    size: ['rg'],
+    decoration: 'none',
+    align: 'left',
+    color: 'P',
+    hoverBackground: '',
 };
 
 Text.propTypes = {
@@ -126,14 +126,14 @@ Text.propTypes = {
     weight: PropTypes.oneOf(Object.keys(VARIENTS.weight)),
     size: PropTypes.array,
     lineHeight: PropTypes.oneOf(Object.keys(VARIENTS.height)),
-    decoration: PropTypes.oneOf(["_", "-", "none"]),
+    decoration: PropTypes.oneOf(['_', '-', 'none']),
     align: PropTypes.oneOf([
-        "left",
-        "right",
-        "center",
-        "justify",
-        "inherit",
-        "initial",
+        'left',
+        'right',
+        'center',
+        'justify',
+        'inherit',
+        'initial',
     ]),
     letterSpacing: PropTypes.number,
     maxLines: PropTypes.number,

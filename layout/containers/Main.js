@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const MainContainer = styled.main`
     width: 100%;
@@ -7,7 +7,7 @@ const MainContainer = styled.main`
 
     position: relative;
 
-    background-color: ${(props) => props.theme.colors["BASE"]};
+    background-color: ${(props) => props.theme.colors['BASE']};
 
     display: flex;
     flex-direction: row;

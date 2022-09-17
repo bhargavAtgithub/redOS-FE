@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const CursorStyle = styled.div`
     pointer-events: none;

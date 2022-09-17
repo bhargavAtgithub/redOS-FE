@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import CursorContext from "./cursor.context";
+import React, { useRef, useEffect } from 'react';
+import CursorContext from './cursor.context';
 
 const CursorProvider = ({ children }) => {
     const cursor = useRef(null);
@@ -17,9 +17,9 @@ const CursorProvider = ({ children }) => {
     const toggleHidden = (hide) => {
         requestRef.current = hide;
         if (requestRef.current) {
-            cursor.current.style.display = "none";
+            cursor.current.style.display = 'none';
         } else {
-            cursor.current.style.display = "block";
+            cursor.current.style.display = 'block';
         }
     };
 
@@ -56,26 +56,26 @@ const CursorProvider = ({ children }) => {
         endX.current = e.pageX;
         endY.current = e.pageY;
 
-        cursor.current.style.top = endY.current + "px";
-        cursor.current.style.left = endX.current + "px";
+        cursor.current.style.top = endY.current + 'px';
+        cursor.current.style.left = endX.current + 'px';
     };
 
     useEffect(() => {
         endX.current = window.innerWidth / 2;
         endY.current = window.innerHeight / 2;
 
-        document.addEventListener("mousedown", mouseOverEvent);
-        document.addEventListener("mouseup", mouseOutEvent);
-        document.addEventListener("mousemove", mouseMoveEvent);
-        document.addEventListener("mouseenter", mouseEnterEvent);
-        document.addEventListener("mouseleave", mouseLeaveEvent);
+        document.addEventListener('mousedown', mouseOverEvent);
+        document.addEventListener('mouseup', mouseOutEvent);
+        document.addEventListener('mousemove', mouseMoveEvent);
+        document.addEventListener('mouseenter', mouseEnterEvent);
+        document.addEventListener('mouseleave', mouseLeaveEvent);
 
         return () => {
-            document.removeEventListener("mousedown", mouseOverEvent);
-            document.removeEventListener("mouseup", mouseOutEvent);
-            document.removeEventListener("mousemove", mouseMoveEvent);
-            document.removeEventListener("mouseenter", mouseEnterEvent);
-            document.removeEventListener("mouseleave", mouseLeaveEvent);
+            document.removeEventListener('mousedown', mouseOverEvent);
+            document.removeEventListener('mouseup', mouseOutEvent);
+            document.removeEventListener('mousemove', mouseMoveEvent);
+            document.removeEventListener('mouseenter', mouseEnterEvent);
+            document.removeEventListener('mouseleave', mouseLeaveEvent);
         };
     }, []);
 
