@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Loader from '../loader';
-import Text from '../typography/Text.component';
-import ButtonStyles from './Button.styles';
+import Text from '../typography/text.component';
+import ButtonStyles from './button.styles';
 
 import useCursor from '../cursor/useCursor';
 

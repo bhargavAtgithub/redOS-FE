@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { VARIENTS } from './Text.properties';
+import { VARIENTS } from './text.properties';
 
 export const styles = {
     decoration: ({ decoration }) => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SIZES, VARIENTS } from './Button.properties';
+import { SIZES, VARIENTS } from './button.properties';
 
 const styles = {
     padding: ({ size }) => {

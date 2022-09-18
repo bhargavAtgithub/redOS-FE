@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import TOGGLE_SIZES from './Toggle.properties';
+import TOGGLE_SIZES from './toggle.properties';
 
 import useCursor from '../cursor/useCursor';
 

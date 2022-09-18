@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Text from '../typography/Text.component';
-import * as Containers from './Input.container';
+import Text from '../typography/text.component';
+import * as Containers from './input.container';
 import InputStyles from './input.styles';
 
 const Input = ({

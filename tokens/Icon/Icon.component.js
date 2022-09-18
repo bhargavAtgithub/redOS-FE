@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconContainer, IconWrapper } from './Icon.styles';
+import { IconContainer, IconWrapper } from './icon.styles';
 
 import useCursor from '../cursor/useCursor';
 

@@ -1,13 +1,13 @@
-import Avatar from './avatar/Avatar.component';
-import Button from './button/Button.component';
+import Avatar from './avatar/avatar.component';
+import Button from './button/button.component';
 import COLORS from './colors';
 import Divider from './divider';
-import Icon from './Icon/Icon.component';
-import Input from './input/Input.component';
+import Icon from './icon/icon.component';
+import Input from './input/input.component';
 import Loader from './loader';
-import Spacer from './spacer/Spacer.component';
-import Toggle from './toggle/Toggle.component';
-import Text from './typography/Text.component';
+import Spacer from './spacer/spacer.component';
+import Toggle from './toggle/toggle.component';
+import Text from './typography/text.component';
 
 export {
     COLORS,

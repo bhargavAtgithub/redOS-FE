@@ -2,8 +2,8 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Text from '../typography/Text.component';
-import SIZES from './Avatar.properties';
+import Text from '../typography/text.component';
+import SIZES from './avatar.properties';
 
 const styles = {
     avatarBackground: ({ theme }) => {

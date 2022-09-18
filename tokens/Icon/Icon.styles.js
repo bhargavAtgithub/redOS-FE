@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import SIZES from './Icon.properties';
+import SIZES from './icon.properties';
 
 const styles = {
     border: ({ theme, color, border }) => {
