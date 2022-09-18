@@ -31,7 +31,7 @@ const BaseLayout = ({ children }) => {
                 {children}
                 <Containers.MenuContainer open={openMenu}>
                     <MenuGrid />
-                    <Spacer y={[10]} x={[5]} />
+                    <Spacer y={[2, 10]} x={[5]} />
                     <Containers.FooterContainer />
                     <Containers.AccessIconContainer
                         onMouseEnter={() => {

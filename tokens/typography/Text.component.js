@@ -70,6 +70,12 @@ export const styles = {
             ? theme.colors[color][1]
             : theme.colors[color];
     },
+    hoverBackground: ({ theme, hoverBackground }) => {
+        if (hoverBackground) {
+            let colorsLen = theme.colors[hoverBackground].length;
+            return theme.colors[hoverBackground][colorsLen > 1 ? 3 : 0];
+        }
+    },
 };
 
 export const TextStylesContainer = styled.div`
@@ -93,13 +99,16 @@ export const TextStylesContainer = styled.div`
     max-height: ${styles.maxHeight}rem;
     position: relative;
 
+    transition: all 300ms linear;
+
     &:hover {
-        background-color: ${(props) => {
-            return props.theme.colors[props.hoverBackground] &&
-                props.theme.colors[props.hoverBackground].length === 4
-                ? props.theme.colors[props.hoverBackground][3]
-                : props.theme.colors[props.hoverBackground];
-        }};
+        ${(props) =>
+            props.hoverBackground
+                ? ` padding: 0 1rem;
+                    border-radius: 1rem;`
+                : ''}
+
+        background-color: ${styles.hoverBackground};
     }
 
     &::after {

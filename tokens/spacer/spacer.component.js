@@ -1,16 +1,21 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 
-import getMargins from './Spacer.utils';
+import getMargins from './spacer.utils';
 
 const SpacerStyles = styled.div`
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     ${(props) =>
         props.hasChildren
-            ? `margin: ${getMargins(props, 0)};`
-            : `height: ${
+            ? `margin: ${getMargins(props, 0)}; width: ${
+                  props.w == 'flex' ? '100%' : 'auto'
+              };`
+            : `padding-top: ${
                   typeof props.y === 'object' && props.y !== null
                       ? props.y[0]
                       : 1
@@ -22,10 +27,12 @@ const SpacerStyles = styled.div`
     @media (min-width: ${(props) => props.theme.devices['lg']}) {
         ${(props) =>
             props.hasChildren
-                ? `margin: ${getMargins(props, 1)};`
+                ? `margin: ${getMargins(props, 1)};  width: ${
+                      props.w == 'flex' ? '100%' : 'auto'
+                  };`
                 : `padding-top: ${
                       typeof props.y === 'object' && props.y !== null
-                          ? props.y[Number(props.length > 1)]
+                          ? props.y[Number(props.y.length > 1)]
                           : 1
                   }rem;
              width: ${

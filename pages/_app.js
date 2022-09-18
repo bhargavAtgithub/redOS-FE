@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import BaseLayout from '../layout';
+import themeBox from '../themeEngine';
 import GlobalStyles from '../themeEngine/global';
 import Cursor from '../tokens/cursor';
-import themeBox from '../themeEngine';
 import CursorProvider from '../tokens/cursor/cursor.provider';
-import BaseLayout from '../layout';
 
 import { ThemeProvider } from 'styled-components';
+import { AuthProvider } from '../state/auth/auth.context';
 
 function MyApp({ Component, pageProps }) {
     const [darkMode, setDarkMode] = useState(false);
@@ -25,10 +26,12 @@ function MyApp({ Component, pageProps }) {
         >
             <CursorProvider>
                 <Cursor />
-                <BaseLayout>
-                    <GlobalStyles />
-                    <Component {...pageProps} />
-                </BaseLayout>
+                <AuthProvider>
+                    <BaseLayout>
+                        <GlobalStyles />
+                        <Component {...pageProps} />
+                    </BaseLayout>
+                </AuthProvider>
             </CursorProvider>
         </ThemeProvider>
     );

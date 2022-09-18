@@ -3,10 +3,11 @@ import { IconContainer, IconWrapper } from './Icon.styles';
 
 import useCursor from '../cursor/useCursor';
 
-const Icon = ({ children, hideCursor, ...props }) => {
+const Icon = ({ children, hideCursor, onClick, ...props }) => {
     const cursor = useCursor();
     return (
         <IconContainer
+            onClick={onClick}
             onMouseEnter={() => {
                 if (hideCursor) {
                     cursor.toggleHidden(true);

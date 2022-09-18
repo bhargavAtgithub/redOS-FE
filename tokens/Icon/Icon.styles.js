@@ -34,14 +34,16 @@ const styles = {
     hoverBackground: ({ theme, hoverColor, hover }) => {
         if (hover) {
             if (hoverColor) {
-                return theme.colors[hoverColor][3];
+                return theme.colors[hoverColor].length > 1
+                    ? theme.colors[hoverColor][3]
+                    : theme.colors[hoverColor][0];
             } else {
                 return theme.colors['OUTER_SPACE'][3];
             }
         }
     },
-    iconColor: ({ theme, iconColor }) => {
-        if (iconColor) {
+    iconColor: ({ theme, iconColor, trueColor }) => {
+        if (iconColor && !trueColor) {
             return theme.colors[iconColor][1];
         }
 
@@ -177,12 +179,14 @@ IconWrapper.defaultProps = {
     size: ['rg'],
     iconColor: 'OUTER_SPACE',
     iconBorder: true,
+    trueColor: false,
 };
 
 IconWrapper.propTypes = {
     size: PropTypes.array,
     iconColor: PropTypes.string,
     iconBorder: PropTypes.bool,
+    trueColor: PropTypes.bool,
 };
 
 export { IconContainer, IconWrapper };

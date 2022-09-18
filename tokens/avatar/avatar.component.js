@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Text from '../typography/Text.component';
 import SIZES from './Avatar.properties';
 
 const styles = {
@@ -39,22 +40,45 @@ const ImageContainer = styled.div`
     position: relative;
 `;
 
-const Avatar = ({ src, size, placeholder }) => (
-    <AvatarStyles size={size}>
-        <ImageContainer size={size}>
-            <Image src={src} layout="fill" placeholder={placeholder} />
-        </ImageContainer>
-    </AvatarStyles>
-);
+const Avatar = ({ src, size, placeholder, text }) => {
+    const [letters, setLetters] = useState();
+
+    useEffect(() => {
+        if (text) {
+            let temp = text.split(' ');
+            let final = '';
+            for (let i = 0; i < temp.length; i++) {
+                if (temp[i] && temp[i][0]) {
+                    final += temp[i][0];
+                }
+            }
+            setLetters(final);
+        }
+    }, [text]);
+
+    return (
+        <AvatarStyles size={size}>
+            {src ? (
+                <ImageContainer size={size}>
+                    <Image src={src} layout="fill" placeholder={placeholder} />
+                </ImageContainer>
+            ) : (
+                <Text size={['rg']}>{letters}</Text>
+            )}
+        </AvatarStyles>
+    );
+};
 
 Avatar.defaultProps = {
     size: 'rg',
     background: '',
+    text: '',
 };
 
 Avatar.propTypes = {
     src: PropTypes.string,
     size: PropTypes.string,
+    text: PropTypes.string,
 };
 
 export default Avatar;

@@ -11,7 +11,7 @@ const BioScreen = () => {
             {' '}
             <Avatar src="/avatars/bhargavAvatar.png" />
             <Styles.TextContainer>
-                <Text>I'm </Text>
+                <Text>I'm</Text>
                 <Spacer x={[1]} t={[2]}>
                     <Text weight={'md'} size={['lg']}>
                         Bhargav
@@ -29,7 +29,7 @@ const BioScreen = () => {
             <Styles.TextContainer>
                 <Text>
                     Currently working at{' '}
-                    <Link href="https://www.terriblytinytales.com/us" passHref>
+                    <Link href="https://www.terriblytinytales.com/" passHref>
                         <a target="_blank">
                             <Text hoverBackground={'RED'} weight={'md'}>
                                 Terribly Tiny Tales{' '}

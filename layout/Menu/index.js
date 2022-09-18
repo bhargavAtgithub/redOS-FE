@@ -76,7 +76,10 @@ const MenuGrid = () => {
                     </a>
                 </GridItems.SocialGridItem>
                 <GridItems.SocialGridItem>
-                    <a href="https://www.linkedin.com/in/bhargav-reddy-vangara/">
+                    <a
+                        href="https://www.linkedin.com/in/bhargav-reddy-vangara/"
+                        target={'_blank'}
+                    >
                         <Icon
                             color="LINKEDIN"
                             background={true}

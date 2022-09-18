@@ -1,7 +1,7 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 const defaultState = {
-    authenticated: false,
+    user: {},
     signIn: () => undefined,
     signOut: () => undefined,
     userType: null,
@@ -9,7 +9,7 @@ const defaultState = {
 
 const AuthContext = createContext(defaultState);
 
-import { supabase } from '../../config/auth/supabaseClient';
+import { supabase } from '../../config/supabaseClient';
 
 const PROVIDERS = {
     EMAIL: '',
@@ -19,9 +19,45 @@ const PROVIDERS = {
 };
 
 export const AuthProvider = ({ children }) => {
-    const [authenticated, setAuthenticated] = useState(
-        defaultState.authenticated
-    );
+    const [user, setUser] = useState(defaultState.user);
+
+    useEffect(() => {
+        const { data: authListener } = supabase.auth.onAuthStateChange(
+            async () => checkUser()
+        );
+        checkUser();
+
+        return () => {
+            authListener?.unsubscribe();
+        };
+    }, []);
+
+    const checkUser = async () => {
+        try {
+            const user = supabase.auth.user();
+            console.log('User', user);
+            setUser(user);
+        } catch (error) {
+            // TODO: Add Error Management
+        }
+    };
+
+    const signUp = async (email, password) => {
+        try {
+            const { user, session, error } = await supabase.auth.signUp({
+                email,
+                password,
+            });
+
+            console.log(user, session);
+            console.log(error);
+            if (error) {
+                throw error;
+            }
+        } catch (error) {
+            // TODO: Add Error Management
+        }
+    };
 
     const signIn = async (provider, email, password) => {
         try {
@@ -56,7 +92,8 @@ export const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider
             value={{
-                authenticated,
+                user,
+                signUp,
                 signIn,
                 signOut,
                 PROVIDERS,

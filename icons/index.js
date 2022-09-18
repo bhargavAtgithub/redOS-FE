@@ -3,6 +3,7 @@ import ArrowUp from './arrow-up';
 import Cross from './cross';
 import Email from './email';
 import Github from './github';
+import Google from './google';
 import Instagram from './instagram';
 import LinkedIn from './linkedin';
 import Moon from './moon';
@@ -22,4 +23,5 @@ export {
     Arrow,
     Email,
     Password,
+    Google,
 };

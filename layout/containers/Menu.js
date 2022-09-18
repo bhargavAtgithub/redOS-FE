@@ -28,7 +28,7 @@ const MenuContainer = styled.nav`
         top: ${(props) => (props.open ? '0%' : '90%')};
         bottom: 0;
 
-        padding: 24rem;
+        padding: 24rem 0;
     }
 `;
 
