@@ -7,10 +7,10 @@ import { Icon, Spacer } from '../tokens';
 import * as Containers from './containers';
 import MenuGrid from './Menu';
 
-import useCursor from '../tokens/cursor/useCursor';
+// import useCursor from '../tokens/cursor/useCursor';
 
 const BaseLayout = ({ children }) => {
-    const cursor = useCursor();
+    // const cursor = useCursor();
     const theme = useTheme();
     const [mouseOnCross, setMouseOnCross] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);

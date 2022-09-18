@@ -3,6 +3,7 @@ import { IconContainer, IconWrapper } from './icon.styles';
 
 import useCursor from '../cursor/useCursor';
 
+// Dummy change
 const Icon = ({ children, hideCursor, onClick, ...props }) => {
     const cursor = useCursor();
     return (
