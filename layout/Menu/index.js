@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import {
     Arrow,
     Github,
@@ -16,9 +15,9 @@ import { StickerContainer, StickerLink } from './ItemContainers';
 import { useTheme } from 'styled-components';
 import useCursor from '../../tokens/cursor/useCursor';
 
+import * as ItemContainers from './Container';
 import GridContainer from './GridContainer';
 import * as GridItems from './GridItems';
-import * as ItemContainers from './Container';
 
 const MenuGrid = () => {
     const theme = useTheme();
@@ -37,7 +36,7 @@ const MenuGrid = () => {
                             color="TWITTER"
                             background={true}
                             border={false}
-                            size={['md', 'lg']}
+                            size={['lg', 'xl']}
                             iconColor="SNOW"
                         >
                             <Twitter />
@@ -53,7 +52,7 @@ const MenuGrid = () => {
                             color="NIGHT"
                             background={true}
                             border={false}
-                            size={['md', 'lg']}
+                            size={['lg', 'xl']}
                             iconColor="NIGHT"
                         >
                             <Github />
@@ -69,7 +68,7 @@ const MenuGrid = () => {
                             color="INSTAGRAM"
                             background={true}
                             border={false}
-                            size={['md', 'lg']}
+                            size={['lg', 'xl']}
                             iconColor="SNOW"
                         >
                             <Instagram />
@@ -82,7 +81,7 @@ const MenuGrid = () => {
                             color="LINKEDIN"
                             background={true}
                             border={false}
-                            size={['md', 'lg']}
+                            size={['lg', 'xl']}
                             iconColor="SNOW"
                         >
                             <LinkedIn />
@@ -104,6 +103,7 @@ const MenuGrid = () => {
                         rotate={320}
                         hoverColor={'RED'}
                         hover={true}
+                        hideCursor={true}
                     >
                         <Arrow />
                     </Icon>
@@ -119,7 +119,7 @@ const MenuGrid = () => {
             <GridItems.GridItem />
             <GridItems.GridItem>
                 <ItemContainers.ThemeIconContainer
-                    style={{ bottom: theme.darkMode ? '35%' : '29%' }}
+                    style={{ bottom: theme.darkMode ? '43%' : '33%' }}
                 >
                     {theme.darkMode ? (
                         <Icon size={['lg']} border={false} iconColor="">
@@ -132,15 +132,6 @@ const MenuGrid = () => {
                     )}
                 </ItemContainers.ThemeIconContainer>
                 <Toggle
-                    onMouseEnter={() => {
-                        cursor.toggleHidden(true);
-                        setMouseOnToggle(true);
-                        console.log('enter');
-                    }}
-                    onMouseLeave={() => {
-                        cursor.toggleHidden(false);
-                        setMouseOnToggle(false);
-                    }}
                     onClick={() => {
                         theme.toggleTheme();
                         console.log('clicked');

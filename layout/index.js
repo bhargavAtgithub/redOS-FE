@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
 
+import { ArrowUp, Cross } from '../icons';
+import { Icon, Spacer } from '../tokens';
 import * as Containers from './containers';
 import MenuGrid from './Menu';
-import { Icon, Spacer } from '../tokens';
-import { ArrowUp, Cross } from '../icons';
 
 import useCursor from '../tokens/cursor/useCursor';
 
@@ -35,20 +35,17 @@ const BaseLayout = ({ children }) => {
                     <Containers.FooterContainer />
                     <Containers.AccessIconContainer
                         onMouseEnter={() => {
-                            cursor.toggleHidden(true);
                             setMouseOnCross(true);
-                            console.log('enter');
                         }}
                         onMouseLeave={() => {
-                            cursor.toggleHidden(false);
                             setMouseOnCross(false);
                         }}
                         onClick={() => {
                             setOpenMenu(!openMenu);
-                            console.log('clicked');
                         }}
                     >
                         <Icon
+                            hideCursor={true}
                             color={mouseOnCross ? 'RED' : ''}
                             iconColor={mouseOnCross ? 'RED' : ''}
                         >

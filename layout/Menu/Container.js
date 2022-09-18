@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ThemeIconContainer = styled.div`
     position: absolute;
     top: 0;
-    bottom: 30%;
+    bottom: 33%;
     left: 0;
     right: 0;
 

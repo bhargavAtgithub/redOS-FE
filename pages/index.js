@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import BioScreen from './bio';
+import BioScreen from '../components/bio';
 
 export default function Home() {
     return (

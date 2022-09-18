@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BioContainer = styled.div`
+export const BioContainer = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -24,4 +24,3 @@ export const TextContainer = styled.div`
     align-items: baseline;
 `;
 
-export default BioContainer;

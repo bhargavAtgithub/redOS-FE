@@ -1,12 +1,14 @@
-import Cross from './cross';
-import ArrowUp from './arrow-up';
-import Github from './github';
-import Twitter from './twitter';
-import LinkedIn from './linkedin';
-import Instagram from './instagram';
-import Sun from './sun';
-import Moon from './moon';
 import Arrow from './arrow';
+import ArrowUp from './arrow-up';
+import Cross from './cross';
+import Email from './email';
+import Github from './github';
+import Instagram from './instagram';
+import LinkedIn from './linkedin';
+import Moon from './moon';
+import Password from './password';
+import Sun from './sun';
+import Twitter from './twitter';
 
 export {
     Cross,
@@ -18,4 +20,6 @@ export {
     Sun,
     Moon,
     Arrow,
+    Email,
+    Password,
 };

@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
         scrollbar-width: none;
     }
 
+    *:focus {
+        outline: none;
+    }
+
     *::-webkit-scrollbar { 
         display: none;  /* Safari and Chrome */
     }

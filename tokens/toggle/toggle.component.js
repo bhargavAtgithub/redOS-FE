@@ -1,7 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
-import TOGGLE_SIZES from './toggle.properties';
+import TOGGLE_SIZES from './Toggle.properties';
+
+import useCursor from '../cursor/useCursor';
 
 const styles = {
     getBackground: ({ theme, color }) => theme.colors['CARD'],
@@ -63,7 +65,21 @@ export const ToggleStyled = styled.input.attrs(({ props }) => ({
     }
 `;
 
-const Toggle = (props) => <ToggleStyled {...props} />;
+const Toggle = (props) => {
+    const cursor = useCursor();
+    return (
+        <ToggleStyled
+            onMouseEnter={() => {
+                cursor.toggleHidden(true);
+                console.log('enter');
+            }}
+            onMouseLeave={() => {
+                cursor.toggleHidden(false);
+            }}
+            {...props}
+        />
+    );
+};
 
 Toggle.defaultProps = {
     size: 'rg',

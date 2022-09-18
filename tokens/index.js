@@ -1,8 +1,11 @@
+import Avatar from './avatar/Avatar.component';
+import Button from './button/Button.component';
 import COLORS from './colors';
-import Text from './typography/Text.component';
 import Icon from './Icon/Icon.component';
-import Toggle from './toggle/toggle.component';
-import Avatar from './avatar/avatar.component';
-import Spacer from './spacer/spacer.component';
+import Input from './input/Input.component';
+import Loader from './loader';
+import Spacer from './spacer/Spacer.component';
+import Toggle from './toggle/Toggle.component';
+import Text from './typography/Text.component';
 
-export { COLORS, Text, Icon, Toggle, Avatar, Spacer };
+export { COLORS, Text, Icon, Toggle, Avatar, Spacer, Input, Button, Loader };

@@ -1,5 +1,5 @@
 import React from 'react';
-import Bio from '../../app/bio';
+import Bio from '../../components/bio';
 
 const BioScreen = () => <Bio />;
 

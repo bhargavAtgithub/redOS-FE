@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import getMargins from './spacer.utils';
+import getMargins from './Spacer.utils';
 
 const SpacerStyles = styled.div`
     background-color: transparent;

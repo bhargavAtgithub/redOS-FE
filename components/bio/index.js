@@ -1,32 +1,32 @@
 import React from 'react';
 
-import BioContainer, { TextContainer } from './bio.containers';
-import { Avatar, Text, Spacer } from '../../tokens';
-
 import Link from 'next/link';
+
+import { Avatar, Spacer, Text } from '../../tokens';
+import * as Styles from './bio.styles';
 
 const BioScreen = () => {
     return (
-        <BioContainer>
+        <Styles.BioContainer>
             {' '}
-            <Avatar src="/avatars/bhargav.png" />
-            <TextContainer>
+            <Avatar src="/avatars/bhargavAvatar.png" />
+            <Styles.TextContainer>
                 <Text>I'm </Text>
                 <Spacer x={[1]} t={[2]}>
                     <Text weight={'md'} size={['lg']}>
                         Bhargav
                     </Text>
                 </Spacer>
-            </TextContainer>
+            </Styles.TextContainer>
             <Spacer y={[2]} />
-            <TextContainer>
+            <Styles.TextContainer>
                 <Text>
                     I’m a developer interested in design. Both system design and
                     design systems.{' '}
                 </Text>
-            </TextContainer>
+            </Styles.TextContainer>
             <Spacer />
-            <TextContainer>
+            <Styles.TextContainer>
                 <Text>
                     Currently working at{' '}
                     <Link href="https://www.terriblytinytales.com/us" passHref>
@@ -45,8 +45,8 @@ const BioScreen = () => {
                         </a>
                     </Link>
                 </Text>
-            </TextContainer>
-        </BioContainer>
+            </Styles.TextContainer>
+        </Styles.BioContainer>
     );
 };
 

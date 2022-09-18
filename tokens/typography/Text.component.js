@@ -1,6 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { VARIENTS } from './Text.properties';
 
 export const styles = {
@@ -27,6 +27,13 @@ export const styles = {
             return 'hidden';
         }
         return 'initial';
+    },
+    textTransform: ({ transform }) => {
+        if (transform) {
+            return transform;
+        } else {
+            return 'none';
+        }
     },
     textOverflow: ({ maxLines }) => {
         if (maxLines) {
@@ -67,6 +74,7 @@ export const styles = {
 
 export const TextStylesContainer = styled.div`
     display: inline-block;
+    width: ${(props) => props.width};
 
     font-family: ${(props) => props.family};
     font-weight: ${styles.weight};
@@ -78,7 +86,7 @@ export const TextStylesContainer = styled.div`
 
     color: ${styles.color};
     text-decoration: ${styles.decoration};
-
+    text-transform: ${styles.textTransform};
     text-align: ${(props) => props.align};
     overflow: ${styles.overflow};
     text-overflow: ${styles.textOverflow};
@@ -115,6 +123,7 @@ Text.defaultProps = {
     family: 'Poppins',
     weight: 'l',
     size: ['rg'],
+    width: 'auto',
     decoration: 'none',
     align: 'left',
     color: 'P',
@@ -126,6 +135,7 @@ Text.propTypes = {
     weight: PropTypes.oneOf(Object.keys(VARIENTS.weight)),
     size: PropTypes.array,
     lineHeight: PropTypes.oneOf(Object.keys(VARIENTS.height)),
+    width: PropTypes.string,
     decoration: PropTypes.oneOf(['_', '-', 'none']),
     align: PropTypes.oneOf([
         'left',
@@ -138,6 +148,7 @@ Text.propTypes = {
     letterSpacing: PropTypes.number,
     maxLines: PropTypes.number,
     hoverBackground: PropTypes.string,
+    transform: PropTypes.oneOf(['uppercase', 'lowercase', 'capitalize']),
 };
 
 export default Text;
