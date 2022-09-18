@@ -33,7 +33,9 @@ const LoginScreen = () => {
             } else {
                 await auth.signUp(values.email, values.password);
             }
-        } catch (error) {}
+        } catch (error) {
+            // TODO: add error management
+        }
     };
 
     return (

@@ -11,7 +11,7 @@ const BioScreen = () => {
             {' '}
             <Avatar src="/avatars/bhargavAvatar.png" />
             <Styles.TextContainer>
-                <Text>I'm</Text>
+                <Text>I&lsquo;m</Text>
                 <Spacer x={[1]} t={[2]}>
                     <Text weight={'md'} size={['lg']}>
                         Bhargav
