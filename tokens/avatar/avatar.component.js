@@ -9,8 +9,6 @@ const styles = {
     avatarBackground: ({ theme }) => {
         let random = Math.floor(Math.random() * theme.colors['AVATAR'].length);
         let color = theme.colors['AVATAR'][random];
-        // let color = theme.colors['AVATAR'][0];
-        console.log(color, random);
         return color;
     },
 };

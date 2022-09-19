@@ -13,7 +13,6 @@ const Icon = ({ children, hideCursor, onClick, ...props }) => {
                 if (hideCursor) {
                     cursor.toggleHidden(true);
                 }
-                console.log('enter');
             }}
             onMouseLeave={() => {
                 if (hideCursor) {

@@ -71,7 +71,6 @@ const Toggle = (props) => {
         <ToggleStyled
             onMouseEnter={() => {
                 cursor.toggleHidden(true);
-                console.log('enter');
             }}
             onMouseLeave={() => {
                 cursor.toggleHidden(false);

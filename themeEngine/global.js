@@ -36,6 +36,8 @@ const GlobalStyles = createGlobalStyle`
         display: none;  /* Safari and Chrome */
     }
 
+
+
 `;
 
 export default GlobalStyles;

@@ -19,15 +19,10 @@ const LoginScreen = () => {
     const [loading, setLoading] = useState(false);
     const [signIn, setSignIn] = useState(true);
 
-    useEffect(() => {
-        console.log('rendering');
-    });
-
     const formSubmit = async (e) => {
         try {
             e.preventDefault();
             setLoading(true);
-            console.log(values);
             if (signIn) {
                 await auth.signIn(values.email, values.password);
             } else {
