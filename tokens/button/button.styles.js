@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import { SIZES, VARIENTS } from './button.properties';
 
 const styles = {
-    padding: ({ size }) => {
+    paddingY: ({ size }) => {
         return SIZES['padding'][size];
+    },
+    paddingX: ({ size }) => {
+        return SIZES['padding'][size] + 1;
     },
     radius: ({ size }) => {
         return SIZES['radius'][size];
@@ -53,7 +56,7 @@ const ButtonStyles = styled.button`
 
     box-sizing: border-box;
 
-    padding: ${styles.padding}rem;
+    padding: ${styles.paddingY}rem ${styles.paddingX}rem;
     border: 1px solid ${styles.border};
     border-radius: ${styles.radius}rem;
 

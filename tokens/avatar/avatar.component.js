@@ -2,6 +2,7 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Spacer from '../spacer/spacer.component';
 import Text from '../typography/text.component';
 import SIZES from './avatar.properties';
 
@@ -18,8 +19,8 @@ const AvatarStyles = styled.div`
     align-items: flex-end;
     justify-content: center;
 
-    width: ${(props) => SIZES[props.size] + 1}rem;
-    height: ${(props) => SIZES[props.size] + 1}rem;
+    width: ${(props) => SIZES[props.size]}rem;
+    height: ${(props) => SIZES[props.size]}rem;
     border-radius: 50%;
 
     overflow: hidden;
@@ -38,7 +39,14 @@ const ImageContainer = styled.div`
     position: relative;
 `;
 
-const Avatar = ({ src, size, placeholder, text }) => {
+const Avatar = ({
+    src,
+    size,
+    placeholder,
+    text,
+    onMouseEnter,
+    onMouseLeave,
+}) => {
     const [letters, setLetters] = useState();
 
     useEffect(() => {
@@ -55,13 +63,21 @@ const Avatar = ({ src, size, placeholder, text }) => {
     }, [text]);
 
     return (
-        <AvatarStyles size={size}>
+        <AvatarStyles
+            size={size}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
             {src ? (
                 <ImageContainer size={size}>
                     <Image src={src} layout="fill" placeholder={placeholder} />
                 </ImageContainer>
             ) : (
-                <Text size={['rg']}>{letters}</Text>
+                <Spacer>
+                    <Text size={['h4']} weight={'b'} color={'SNOW'}>
+                        {letters}
+                    </Text>
+                </Spacer>
             )}
         </AvatarStyles>
     );
@@ -71,12 +87,16 @@ Avatar.defaultProps = {
     size: 'rg',
     background: '',
     text: '',
+    onMouseEnter: () => {},
+    onMouseLeave: () => {},
 };
 
 Avatar.propTypes = {
     src: PropTypes.string,
     size: PropTypes.string,
     text: PropTypes.string,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
 };
 
 export default Avatar;

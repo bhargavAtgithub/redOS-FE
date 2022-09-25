@@ -24,11 +24,11 @@ function MyApp({ Component, pageProps }) {
                 ...themeBox,
             }}
         >
+            <GlobalStyles />
             <CursorProvider>
                 <Cursor />
                 <AuthProvider>
                     <BaseLayout>
-                        <GlobalStyles />
                         <Component {...pageProps} />
                     </BaseLayout>
                 </AuthProvider>

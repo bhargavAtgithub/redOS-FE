@@ -11,13 +11,13 @@ const MainContainer = styled.main`
 
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     padding: 4rem;
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
-        padding: 3rem;
+        padding: 3rem 3rem 30rem;
     }
 `;
 

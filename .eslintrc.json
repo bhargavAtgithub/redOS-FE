@@ -11,5 +11,8 @@
             1,
             { "args": "after-used", "argsIgnorePattern": "^_" }
         ]
+    },
+    "env": {
+        "es6": true
     }
 }

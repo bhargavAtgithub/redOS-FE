@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
     html,
     body {
-        width: 100%;
+        width: 100vw;
+        max-width: 100vw;
         height: 100%;
         padding: 0;
         margin: 0;

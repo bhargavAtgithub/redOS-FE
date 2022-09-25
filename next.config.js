@@ -5,6 +5,9 @@ const nextConfig = {
         styledComponents: true,
     },
     swcMinify: true,
+    images: {
+        domains: ['cgkxhxukpzqmcrufjolx.supabase.co'],
+    },
 };
 
 module.exports = nextConfig;

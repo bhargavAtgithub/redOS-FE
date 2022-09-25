@@ -16,6 +16,7 @@ const Input = ({
     onChange,
     width,
     placeholder,
+    required,
 }) => {
     return (
         <Containers.InputContainer width={width}>
@@ -42,6 +43,7 @@ const Input = ({
                         name={name}
                         onChange={onChange}
                         placeholder={placeholder}
+                        required={required}
                     />
                 </Text>
             </Containers.LabelContainer>

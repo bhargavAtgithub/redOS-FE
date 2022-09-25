@@ -12,7 +12,7 @@ const LogoContainerStyles = styled.div`
     height: 4rem;
     width: 4rem;
 
-    z-index: 30;
+    z-index: 10;
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
         top: 5rem;

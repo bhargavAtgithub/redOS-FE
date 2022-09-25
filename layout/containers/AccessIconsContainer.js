@@ -4,12 +4,18 @@ const AccessIconContainer = styled.div`
     position: fixed;
     bottom: 2rem;
 
-    height: 5rem;
-    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: enter;
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
         bottom: 2;
     }
 `;
 
-export default AccessIconContainer;
+const AccessIcon = styled.div`
+    height: 5rem;
+    width: 5rem;
+`;
+
+export { AccessIconContainer, AccessIcon };

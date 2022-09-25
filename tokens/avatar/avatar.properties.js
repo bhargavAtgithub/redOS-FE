@@ -1,5 +1,5 @@
 const SIZES = {
-    rg: 8,
+    rg: 9,
 };
 
 export default SIZES;

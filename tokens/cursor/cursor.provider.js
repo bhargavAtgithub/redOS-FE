@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useRef } from 'react';
 import CursorContext from './cursor.context';
 
 const CursorProvider = ({ children }) => {
     const cursor = useRef(null);
+    const router = useRouter();
 
     const cursorVisible = useRef(true);
     const cursorEnlarged = useRef(false);
@@ -53,8 +55,8 @@ const CursorProvider = ({ children }) => {
         cursorVisible.current = true;
         toggleCursorVisibility();
 
-        endX.current = e.pageX;
-        endY.current = e.pageY;
+        endX.current = e.clientX;
+        endY.current = e.clientY;
 
         cursor.current.style.top = endY.current + 'px';
         cursor.current.style.left = endX.current + 'px';
@@ -78,6 +80,10 @@ const CursorProvider = ({ children }) => {
             document.removeEventListener('mouseleave', mouseLeaveEvent);
         };
     }, []);
+
+    useEffect(() => {
+        toggleHidden(false);
+    }, [router.pathname]);
 
     return (
         <CursorContext.Provider value={{ cursor, toggleHidden }}>

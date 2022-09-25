@@ -1,9 +1,11 @@
+import { useRouter } from 'next/router';
 import { createContext, useEffect, useState } from 'react';
 
 const defaultState = {
     user: {},
     signIn: () => undefined,
     signOut: () => undefined,
+    signUp: () => undefined,
     userType: null,
 };
 
@@ -19,43 +21,127 @@ const PROVIDERS = {
 };
 
 export const AuthProvider = ({ children }) => {
+    const router = useRouter();
+    const [loading, setLoading] = useState(true);
+    const [session, setSession] = useState(true);
     const [user, setUser] = useState(defaultState.user);
 
     useEffect(() => {
+        setLoading(true);
         const { data: authListener } = supabase.auth.onAuthStateChange(
-            async () => checkUser()
+            async () => await getProfile()
         );
-        checkUser();
+        getProfile();
 
         return () => {
             authListener?.unsubscribe();
         };
     }, []);
 
-    const checkUser = async () => {
+    useEffect(() => {
+        if (Object.keys(user).length) {
+            setLoading(false);
+        }
+    }, [user]);
+
+    const getProfile = async (next = () => {}) => {
         try {
-            const user = supabase.auth.user();
-            console.log('User', user);
-            setUser(user);
+            const user = await getCurrentUser();
+
+            if (user) {
+                let { data, error, status } = await supabase
+                    .from('profiles')
+                    .select()
+                    .eq('user_id', user.id)
+                    .limit(1);
+
+                next();
+                if (error && status !== 406) {
+                    throw error;
+                }
+
+                if (data) {
+                    setUser({
+                        ...data[0],
+                        email: user.email,
+                        avatar_url:
+                            data[0].avatar_url + `?t=${data[0].updated_at}`,
+                    });
+                    setSession(true);
+                }
+            }
         } catch (error) {
-            // TODO: Add Error Management
+            console.log(error);
         }
     };
 
-    const signUp = async (email, password) => {
+    const getCurrentUser = async () => {
+        try {
+            const session = supabase.auth.session();
+            if (!session?.user) {
+                setLoading(false);
+                setSession(false);
+                return null;
+            }
+            return session.user;
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const updateProfile = async (userDetails) => {
+        try {
+            const user = await getCurrentUser();
+            console.log(user, userDetails);
+            if (user) {
+                delete userDetails.confirm_password;
+                delete userDetails.password;
+                delete userDetails.email;
+
+                const updates = {
+                    user_id: user.id,
+                    ...userDetails,
+                    updated_at: new Date(),
+                };
+
+                let { error } = await supabase.from('profiles').upsert(updates);
+                if (error) {
+                    throw error;
+                } else {
+                    getProfile();
+                }
+            }
+        } catch (error) {
+            console.log(error);
+            return {
+                error,
+            };
+        }
+    };
+
+    const signUp = async ({ email, password, ...userDetails }) => {
         try {
             const { user, session, error } = await supabase.auth.signUp({
                 email,
                 password,
             });
 
-            console.log(user, session);
-            console.log(error);
+            let current_user = {
+                user_id: user.id,
+                email: user.email,
+            };
+
+            setUser(current_user);
+
             if (error) {
                 throw error;
             }
+
+            // await updateProfile(userDetails);
         } catch (error) {
-            // TODO: Add Error Management
+            return {
+                error: error,
+            };
         }
     };
 
@@ -67,25 +153,36 @@ export const AuthProvider = ({ children }) => {
                 provider,
             });
 
-            console.log('user', user);
-            console.log('session', session);
-            console.log('error', error);
-
             if (error) {
                 throw error;
             }
+
+            getProfile((data) => {
+                if (data == null) {
+                    router.push(`/profile`);
+                }
+            });
         } catch (error) {
-            // TODO: Add Error Management
+            console.log(error);
         }
     };
 
     const signOut = async () => {
+        console.log('signing out');
         try {
             const { error } = await supabase.auth.signOut();
 
-            throw error;
+            if (error) {
+                throw error;
+            }
+
+            setUser({});
+            setSession(false);
         } catch (error) {
-            // TODO: Add Error Management
+            console.log(error);
+            return {
+                error: error,
+            };
         }
     };
 
@@ -93,10 +190,14 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider
             value={{
                 user,
+                session,
                 signUp,
                 signIn,
                 signOut,
+                updateProfile,
+                getProfile,
                 PROVIDERS,
+                loading,
             }}
         >
             {children}

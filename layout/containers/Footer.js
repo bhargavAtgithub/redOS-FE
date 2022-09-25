@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { useTheme } from 'styled-components';
 
@@ -11,29 +12,29 @@ const FooterContainer = () => {
 
     return (
         <Containers.FooterStyles>
+            <ProfileCard />
+            <Spacer x={[3]} y={[5, 10]} />
             <Containers.RedContainer>
-                <Containers.LogoContainer>
-                    <Containers.LogoWrapper>
-                        <Image
-                            src={`/assets/b-red-lg-${
-                                theme.darkMode ? 'dark' : 'light'
-                            }.png`}
-                            layout="responsive"
-                            width="8rem"
-                            height="7rem"
-                        />
-                    </Containers.LogoWrapper>
-                </Containers.LogoContainer>
-
+                <Link href="/">
+                    <Containers.LogoContainer>
+                        <Containers.LogoWrapper>
+                            <Image
+                                src={`/assets/b-red-lg-${
+                                    theme.darkMode ? 'dark' : 'light'
+                                }.png`}
+                                layout="fill"
+                            />
+                        </Containers.LogoWrapper>
+                    </Containers.LogoContainer>
+                </Link>
+                <Spacer x={[3]} y={[2]} />
+                <Text>V Bhargav Reddy</Text>
+                <Text size={['mi']}>Full Stack Engineer based in India</Text>
                 {/* <Text>
                 © 2022 - present <Text weight={"rg"}>V Bhargav Reddy</Text>. All
                 Rights Reserved.
             </Text> */}
-                <Text>V Bhargav Reddy</Text>
-                <Text size={['mi']}>Full Stack Engineer based in India</Text>
             </Containers.RedContainer>
-            <Spacer y={[3]} />
-            <ProfileCard />
         </Containers.FooterStyles>
     );
 };
