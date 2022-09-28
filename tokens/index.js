@@ -4,7 +4,7 @@ import COLORS from './colors';
 import Divider from './divider';
 import Icon from './icon/icon.component';
 import Input from './input/input.component';
-import Loader from './loader';
+import Loader from './loader/loader';
 import Spacer from './spacer/spacer.component';
 import Toggle from './toggle/toggle.component';
 import Text from './typography/text.component';

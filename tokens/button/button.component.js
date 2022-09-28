@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Loader from '../loader';
+import Loader from '../loader/loader';
 import Text from '../typography/text.component';
 import ButtonStyles from './button.styles';
 
@@ -40,7 +40,7 @@ const Button = ({
             {...props}
         >
             {isLoading ? (
-                <Loader />
+                <Loader size={size} />
             ) : (
                 <>
                     {leftIcon}

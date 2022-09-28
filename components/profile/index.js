@@ -54,8 +54,7 @@ const Profile = () => {
                 auth.user.user_id,
                 auth.user.avatar_url !== ''
             );
-            console.log(avatarUrl);
-            setPreview(avatarUrl);
+            return avatarUrl;
         }
     };
 

@@ -60,15 +60,20 @@ export const AuthProvider = ({ children }) => {
                     throw error;
                 }
 
-                if (data) {
+                if (data && data.length) {
                     setUser({
                         ...data[0],
                         email: user.email,
-                        avatar_url:
-                            data[0].avatar_url + `?t=${data[0].updated_at}`,
+                        avatar_url: data[0]?.avatar_url
+                            ? data[0]?.avatar_url + `?t=${data[0]?.updated_at}`
+                            : '',
                     });
-                    setSession(true);
+                } else {
+                    setUser({
+                        email: user.email,
+                    });
                 }
+                setSession(true);
             }
         } catch (error) {
             console.log(error);
@@ -92,7 +97,6 @@ export const AuthProvider = ({ children }) => {
     const updateProfile = async (userDetails) => {
         try {
             const user = await getCurrentUser();
-            console.log(user, userDetails);
             if (user) {
                 delete userDetails.confirm_password;
                 delete userDetails.password;
@@ -136,8 +140,6 @@ export const AuthProvider = ({ children }) => {
             if (error) {
                 throw error;
             }
-
-            // await updateProfile(userDetails);
         } catch (error) {
             return {
                 error: error,
@@ -168,7 +170,6 @@ export const AuthProvider = ({ children }) => {
     };
 
     const signOut = async () => {
-        console.log('signing out');
         try {
             const { error } = await supabase.auth.signOut();
 

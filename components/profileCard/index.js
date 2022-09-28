@@ -18,7 +18,7 @@ const ProfileCard = () => {
                 </Link>
                 <Spacer />
                 <Text size={['sm']} weight={'rg'}>
-                    Why not?
+                    Because, Why not?
                 </Text>
             </Containers.SignInContainer>
         );
@@ -31,7 +31,14 @@ const ProfileCard = () => {
                 <Spacer />
                 <Text>{auth.user.name}</Text>
                 <Spacer y={[4]} />
-                <Button title={'Sign Out'} size="mi" onClick={auth.signOut} />
+                <Button
+                    title={'Sign Out'}
+                    size="mi"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        auth.signOut();
+                    }}
+                />
             </Containers.ProfileContainer>
         </Link>
     );

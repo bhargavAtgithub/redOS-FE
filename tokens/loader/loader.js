@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
+import LoaderContainer from './loader.container';
+
 const LoadingFrames = (props) => keyframes`
     33% {
         background: ${props.theme.colors['CARD'][0]};
@@ -23,14 +25,13 @@ const LoadingFrames = (props) => keyframes`
 
 `;
 
-const Loader = styled.div`
+const LoaderStyles = styled.div`
     width: 1.5rem;
     max-width: 1.5rem;
     height: 1.5rem;
     max-height: 1.5rem;
     border-radius: 50%;
     display: block;
-    // margin: 1.5rem;
     position: relative;
     background: ${(props) => props.theme.colors['CARD'][0]};
     box-shadow: -3rem 0 ${(props) => props.theme.colors['CARD'][0]},
@@ -39,12 +40,22 @@ const Loader = styled.div`
     animation: ${(props) => LoadingFrames(props)} 1s linear infinite;
 `;
 
+const Loader = ({ size, color }) => {
+    return (
+        <LoaderContainer size={size}>
+            <LoaderStyles color={color} />
+        </LoaderContainer>
+    );
+};
+
 Loader.defaultProps = {
     color: 'RED',
+    size: 'rg',
 };
 
 Loader.propTypes = {
     color: PropTypes.string,
+    size: PropTypes.string,
 };
 
 export default Loader;
