@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Loader from '../loader/loader';
+import Loader from '../loader/loader.component';
 import Text from '../typography/text.component';
 import ButtonStyles from './button.styles';
 
