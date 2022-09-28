@@ -52,7 +52,8 @@ const Profile = () => {
             let avatarUrl = await uploadFile(
                 avatarInput,
                 auth.user.user_id,
-                auth.user.avatar_url !== ''
+                auth.user.avatar_url !== undefined &&
+                    auth.user.avatar_url !== ''
             );
             return avatarUrl;
         }

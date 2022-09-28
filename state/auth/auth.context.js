@@ -136,6 +136,11 @@ export const AuthProvider = ({ children }) => {
             };
 
             setUser(current_user);
+            getProfile((data) => {
+                if (data == null) {
+                    router.push(`/profile`);
+                }
+            });
 
             if (error) {
                 throw error;
