@@ -102,6 +102,7 @@ const Profile = () => {
                 placeholder="Enter your email here"
                 name={'name'}
                 required={true}
+                disabled
             />
             <Spacer />
             <Input

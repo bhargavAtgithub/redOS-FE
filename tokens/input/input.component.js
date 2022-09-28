@@ -17,6 +17,7 @@ const Input = ({
     width,
     placeholder,
     required,
+    disabled,
 }) => {
     return (
         <Containers.InputContainer width={width}>
@@ -44,6 +45,7 @@ const Input = ({
                         onChange={onChange}
                         placeholder={placeholder}
                         required={required}
+                        disabled={disabled}
                     />
                 </Text>
             </Containers.LabelContainer>
@@ -53,6 +55,7 @@ const Input = ({
 
 Input.defaultProps = {
     color: 'TITLE',
+    disabled: false,
 };
 
 Input.propTypes = {
@@ -64,6 +67,7 @@ Input.propTypes = {
     type: PropTypes.string,
     name: PropTypes.string,
     onChange: PropTypes.func,
+    disabled: PropTypes.bool,
 };
 
 export default Input;
