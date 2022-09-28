@@ -75,7 +75,6 @@ const Profile = () => {
             <label for="avatar-input">
                 <AvatarUpload
                     onMouseEnter={() => {
-                        console.log('hidding');
                         cursor.toggleHidden(true);
                     }}
                     onMouseLeave={() => {

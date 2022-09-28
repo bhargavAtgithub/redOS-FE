@@ -1,15 +1,17 @@
-import Head from 'next/head';
 import BioScreen from '../components/bio';
+import Meta from '../components/meta';
 
 export default function Home() {
     return (
         <>
-            <Head>
-                <title>BHARGAV REDDY</title>
-                <meta name="description" content="A learning playground." />
-                <link rel="icon" href="/favicons/favicon.ico" />
-            </Head>
+            <Meta />
             <BioScreen />
         </>
     );
+}
+
+export async function getStaticProps(_context) {
+    return {
+        props: {},
+    };
 }
