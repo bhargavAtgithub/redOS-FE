@@ -19,4 +19,17 @@ const StickerLink = styled.a`
     display: contents;
 `;
 
-export { StickerContainer, StickerLink };
+const ChatContainer = styled.div`
+    display: inline;
+    position: relative;
+
+    width: 13rem;
+    height: 13rem;
+
+    @media (min-width: ${(props) => props.theme.devices.lg}) {
+        width: 20rem;
+        height: 20rem;
+    }
+`;
+
+export { StickerContainer, StickerLink, ChatContainer };

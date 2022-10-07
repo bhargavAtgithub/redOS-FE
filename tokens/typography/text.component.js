@@ -119,8 +119,8 @@ export const TextStylesContainer = styled.div`
     }
 
     @media (min-width: ${(props) => props.theme.devices['lg']}) {
-        font-size: ${styles.lgSize};
-        lineheight: ${styles.lgHeight};
+        font-size: ${styles.lgSize}rem;
+        line-height: ${styles.lgHeight}rem;
     }
 `;
 

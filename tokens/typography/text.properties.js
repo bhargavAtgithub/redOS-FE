@@ -1,6 +1,6 @@
 const VARIENTS = {
     family: {
-        Poppins: 'Poppins',
+    Poppins: 'Poppins',
     },
     size: {
         mi: 1.44, // 11.52

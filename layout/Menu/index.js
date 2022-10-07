@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import {
     Arrow,
+    Book,
+    Bookmark,
     Github,
     Instagram,
     LinkedIn,
@@ -9,8 +11,8 @@ import {
     Sun,
     Twitter,
 } from '../../icons';
-import { Icon, Spacer, Toggle } from '../../tokens';
-import { StickerContainer, StickerLink } from './ItemContainers';
+import { Icon, Spacer, Text, Toggle } from '../../tokens';
+import { ChatContainer, StickerContainer, StickerLink } from './ItemContainers';
 
 import { useTheme } from 'styled-components';
 import useCursor from '../../tokens/cursor/useCursor';
@@ -112,24 +114,51 @@ const MenuGrid = () => {
                     </Icon>
                 </StickerLink>
             </GridItems.GridItem>
-            <GridItems.GridItem />
-            <GridItems.GridItem />
+            <GridItems.GridItem>
+                <Text size={['lg', 'xl']} weight="md">
+                    Stack
+                </Text>
+            </GridItems.GridItem>
+            <GridItems.GridItem>
+                <Text size={['lg', 'xl']} weight="md">
+                    Timeline
+                </Text>
+            </GridItems.GridItem>
             <GridItems.ContentGridItem />
-            <GridItems.GridItem />
-            <GridItems.RedOsGridItem />
+            <GridItems.GridItem>
+                <Icon size={['xl', 'xxl']} border={false}>
+                    <Bookmark />
+                </Icon>
+            </GridItems.GridItem>
+            <GridItems.RedOsGridItem>
+                <Text size={['rg', 'md']} weight="b" color="RED">
+                    red
+                </Text>
+                <Text size={['h2', 'h1']} weight="xb">
+                    OS
+                </Text>
+            </GridItems.RedOsGridItem>
             <GridItems.MediaGridItem />
-            <GridItems.GridItem />
-            <GridItems.GridItem />
+            <GridItems.GridItem>
+                <Icon size={['xl', 'xxl']} border={false}>
+                    <Book />
+                </Icon>
+            </GridItems.GridItem>
+            <GridItems.GridItem>
+                <ChatContainer>
+                    <Image src="/icons/chatIcon.png" layout="fill" />
+                </ChatContainer>
+            </GridItems.GridItem>
             <GridItems.GridItem>
                 <ItemContainers.ThemeIconContainer
                     style={{ bottom: theme.darkMode ? '43%' : '33%' }}
                 >
                     {theme.darkMode ? (
-                        <Icon size={['lg']} border={false} iconColor="">
+                        <Icon size={['lg']} border={false}>
                             <Moon />
                         </Icon>
                     ) : (
-                        <Icon size={['xl']} border={false} iconColor="">
+                        <Icon size={['xl']} border={false}>
                             <Sun />
                         </Icon>
                     )}

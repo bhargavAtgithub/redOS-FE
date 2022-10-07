@@ -1,5 +1,8 @@
 import Arrow from './arrow';
 import ArrowUp from './arrow-up';
+import Book from './book';
+import Bookmark from './bookmark';
+import Chat from './chat';
 import Cross from './cross';
 import Email from './email';
 import Github from './github';
@@ -24,4 +27,7 @@ export {
     Email,
     Password,
     Google,
+    Bookmark,
+    Book,
+    Chat,
 };

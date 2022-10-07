@@ -43,8 +43,25 @@ const styles = {
         }
     },
     iconColor: ({ theme, iconColor, trueColor }) => {
-        if (iconColor && !trueColor) {
-            return theme.colors[iconColor][1];
+        if (trueColor) {
+            return '';
+        }
+        if (iconColor) {
+            return theme.colors[iconColor].length > 1
+                ? theme.colors[iconColor][1]
+                : theme.colors[iconColor][0];
+        }
+
+        return theme.colors['ICON'][0];
+    },
+    fillColor: ({ theme, fillColor, trueColor }) => {
+        if (trueColor) {
+            return '';
+        }
+        if (fillColor) {
+            return theme.colors[fillColor].length > 1
+                ? theme.colors[fillColor][1]
+                : theme.colors[fillColor][0];
         }
 
         return '';
@@ -156,14 +173,15 @@ const IconWrapper = styled.div`
         }
     }
     path {
-        fill: ${styles.iconColor};
+        fill: ${styles.fillColor};
         stroke: ${styles.iconColor};
     }
 `;
 
 IconWrapper.defaultProps = {
     size: ['rg'],
-    iconColor: 'OUTER_SPACE',
+    iconColor: '',
+    fillColor: '',
     iconBorder: true,
     trueColor: false,
 };
@@ -171,6 +189,7 @@ IconWrapper.defaultProps = {
 IconWrapper.propTypes = {
     size: PropTypes.array,
     iconColor: PropTypes.string,
+    fillColor: PropTypes.string,
     iconBorder: PropTypes.bool,
     trueColor: PropTypes.bool,
 };
