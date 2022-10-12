@@ -76,7 +76,7 @@ const Profile = () => {
         if (!auth.session) {
             router.push(`/`);
         }
-    }, [auth.session]);
+    }, [router, auth.session]);
 
     return (
         <FormContainer>
