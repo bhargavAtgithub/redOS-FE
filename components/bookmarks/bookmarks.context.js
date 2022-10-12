@@ -76,7 +76,7 @@ const BookmarksProvider = ({ bookmarks, children }) => {
 
             const { secret: revalidate_secret } = data[0];
 
-            let isrResponse = await app.hello({
+            await app.hello({
                 url: '/api/revalidate?secret=' + revalidate_secret,
             });
         } catch (error) {
