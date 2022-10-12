@@ -16,7 +16,7 @@ export const styles = {
     },
     maxHeight: ({ theme, size, maxLines }) => {
         if (maxLines) {
-            const lineHeight = VARIENTSS.height[size];
+            const lineHeight = VARIENTS.height[size];
             const maxHeight = parseFloat(lineHeight) * maxLines;
             return maxHeight;
         }
@@ -98,6 +98,7 @@ export const TextStylesContainer = styled.div`
     text-overflow: ${styles.textOverflow};
     max-height: ${styles.maxHeight}rem;
     position: relative;
+    word-break: break-word;
 
     transition: all 300ms linear;
 
@@ -112,10 +113,10 @@ export const TextStylesContainer = styled.div`
     }
 
     &::after {
-        content: ${styles.ellipsis};
+        content: '${styles.ellipsis}';
         position: absolute;
         bottom: 0rem;
-        right: 0rem;
+        right: 0.2rem;
     }
 
     @media (min-width: ${(props) => props.theme.devices['lg']}) {
@@ -130,7 +131,7 @@ const Text = (props) => (
 
 Text.defaultProps = {
     family: 'Poppins',
-    weight: 'l',
+    weight: 'rg',
     size: ['rg'],
     width: 'auto',
     decoration: 'none',

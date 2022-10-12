@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FormContainer = styled.form`
+const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -13,9 +13,18 @@ const FormContainer = styled.form`
     padding-top: 12rem;
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
-        padding-top: 16rem;
+        padding-top: 12rem;
         width: 40rem;
     }
 `;
 
-export default FormContainer;
+const Form = styled.form`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+export { FormContainer, Form };

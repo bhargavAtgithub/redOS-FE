@@ -11,12 +11,12 @@ export const GridItem = styled.li`
     background-color: ${(props) =>
         props.bg
             ? props.theme.colors[props.bg][1]
-            : props.theme.colors['CARD']};
+            : props.theme.colors['CARD'][0]};
     background-image: ${(props) =>
         props.bg
             ? props.theme.colors[props.bg][1]
-            : props.theme.colors['CARD']};
-    border: 1px solid ${(props) => props.theme.colors['BORDER']};
+            : props.theme.colors['CARD'][0]};
+    border: 1px solid ${(props) => props.theme.colors['BORDER'][0]};
     border-radius: 4rem;
 `;
 

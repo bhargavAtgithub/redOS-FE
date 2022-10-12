@@ -15,14 +15,15 @@ const FooterContainer = () => {
             <ProfileCard />
             <Spacer x={[3]} y={[5, 10]} />
             <Containers.RedContainer>
-                <Link href="/">
+                <Link href="/" as="/">
                     <Containers.LogoContainer>
                         <Containers.LogoWrapper>
                             <Image
-                                src={`/assets/b-red-lg-${
+                                src={`/assets/b-red-sm-${
                                     theme.darkMode ? 'dark' : 'light'
                                 }.png`}
                                 layout="fill"
+                                priority={true}
                             />
                         </Containers.LogoWrapper>
                     </Containers.LogoContainer>

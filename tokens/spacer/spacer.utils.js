@@ -42,7 +42,7 @@ const getMargins = ({ xy, x, y, t, r, b, l }, device) => {
     if (typeof r === 'object' && r !== null)
         margins['r'] = r[device] ? r[device] : r[0];
     if (typeof b === 'object' && b !== null)
-        margins['b'] = b[device] ? b[device] : r[0];
+        margins['b'] = b[device] ? b[device] : b[0];
     if (typeof l === 'object' && l !== null)
         margins['l'] = l[device] ? l[device] : l[0];
 

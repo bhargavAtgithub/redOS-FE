@@ -6,5 +6,12 @@ export const ProviderContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+`;
+
+export const TabContainer = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 `;

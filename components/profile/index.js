@@ -1,10 +1,11 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import { uploadFile, useFormFields } from '../../lib';
 import { useAuth } from '../../state';
 import useCursor from '../../tokens/cursor/useCursor';
 
-import { AvatarUpload, FormContainer } from '../containers';
+import { AvatarUpload, Form, FormContainer } from '../containers';
 
 import { Avatar, Button, Input, Spacer } from '../../tokens';
 
@@ -21,6 +22,7 @@ const userProfileFields = {
 
 const Profile = () => {
     const auth = useAuth();
+    const router = useRouter();
     const cursor = useCursor();
     const [values, handleChange] = useFormFields({
         ...userProfileFields,
@@ -70,66 +72,74 @@ const Profile = () => {
         }
     }, [avatarInput]);
 
-    return (
-        <FormContainer onSubmit={formSubmit}>
-            <label for="avatar-input">
-                <AvatarUpload
-                    onMouseEnter={() => {
-                        cursor.toggleHidden(true);
-                    }}
-                    onMouseLeave={() => {
-                        cursor.toggleHidden(false);
-                    }}
-                >
-                    <Avatar src={preview} />
-                </AvatarUpload>
-            </label>
-            <input
-                type={'file'}
-                id="avatar-input"
-                style={{ display: 'none' }}
-                onChange={(e) => {
-                    setAvatarInput(e.target.files[0]);
-                }}
-            />
+    useEffect(() => {
+        if (!auth.session) {
+            router.push(`/`);
+        }
+    }, [auth.session]);
 
-            <Spacer y={[2]} />
-            <Input
-                label={'Email'}
-                type={'email'}
-                onChange={() => {}}
-                value={values.email}
-                placeholder="Enter your email here"
-                name={'name'}
-                required={true}
-                disabled
-            />
-            <Spacer />
-            <Input
-                label={'Name'}
-                type={'text'}
-                onChange={handleChange}
-                value={values.name}
-                placeholder="Enter your name here"
-                name={'name'}
-                required={true}
-            />
-            <Spacer />
-            <Input
-                label={'Mobile Number'}
-                type={'tel'}
-                onChange={handleChange}
-                value={values.mobile_number}
-                placeholder="Mobile Number"
-                name={'mobile_number'}
-            />
-            <Spacer y={[4]} />
-            <Button
-                title={'Update'}
-                size="sm"
-                type="submit"
-                isLoading={loading}
-            />
+    return (
+        <FormContainer>
+            <Form onSubmit={formSubmit}>
+                <label htmlFor="avatar-input">
+                    <AvatarUpload
+                        onMouseEnter={() => {
+                            cursor.toggleHidden(true);
+                        }}
+                        onMouseLeave={() => {
+                            cursor.toggleHidden(false);
+                        }}
+                    >
+                        <Avatar src={preview} />
+                    </AvatarUpload>
+                </label>
+                <input
+                    type={'file'}
+                    id="avatar-input"
+                    style={{ display: 'none' }}
+                    onChange={(e) => {
+                        setAvatarInput(e.target.files[0]);
+                    }}
+                />
+
+                <Spacer y={[2]} />
+                <Input
+                    label={'Email'}
+                    type={'email'}
+                    onChange={() => {}}
+                    value={values.email}
+                    placeholder="Enter your email here"
+                    name={'name'}
+                    required={true}
+                    disabled
+                />
+                <Spacer />
+                <Input
+                    label={'Name'}
+                    type={'text'}
+                    onChange={handleChange}
+                    value={values.name}
+                    placeholder="Enter your name here"
+                    name={'name'}
+                    required={true}
+                />
+                <Spacer />
+                <Input
+                    label={'Mobile Number'}
+                    type={'tel'}
+                    onChange={handleChange}
+                    value={values.mobile_number}
+                    placeholder="Mobile Number"
+                    name={'mobile_number'}
+                />
+                <Spacer y={[4]} />
+                <Button
+                    title={'Update'}
+                    size="sm"
+                    type="submit"
+                    isLoading={loading}
+                />
+            </Form>
         </FormContainer>
     );
 };

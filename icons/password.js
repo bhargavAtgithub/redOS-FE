@@ -5,7 +5,7 @@ const PasswordContainer = styled.div`
     width: 1.5rem;
     height: 1.5rem;
 
-    border: 2px solid ${(props) => props.theme.colors['TITLE']};
+    border: 2px solid ${(props) => props.theme.colors['TITLE'][0]};
     border-radius: 50%;
 
     display: flex;
@@ -21,7 +21,7 @@ const PasswordEye = styled.div`
 
     border-radius: 50%;
 
-    background-color: ${(props) => props.theme.colors['TITLE']};
+    background-color: ${(props) => props.theme.colors['TITLE'][0]};
 `;
 
 const Password = ({ see, togglePassword }) => (

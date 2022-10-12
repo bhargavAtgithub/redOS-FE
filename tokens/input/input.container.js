@@ -39,7 +39,7 @@ export const LabelContainer = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
 
-    gap: 0.5rem;
+    gap: 1rem;
 `;
 
 export const IconContainer = styled.div`

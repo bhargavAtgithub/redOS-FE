@@ -9,7 +9,7 @@ const Cursor = () => {
     return (
         <>
             <CursorStyle ref={cursor.cursor}>
-                <Image src="/assets/cursor.png" layout="fill" />
+                <Image src="/assets/cursor.png" layout="fill" priority={true} />
             </CursorStyle>
         </>
     );

@@ -18,6 +18,7 @@ const Input = ({
     placeholder,
     required,
     disabled,
+    onPaste,
 }) => {
     return (
         <Containers.InputContainer width={width}>
@@ -46,6 +47,7 @@ const Input = ({
                         placeholder={placeholder}
                         required={required}
                         disabled={disabled}
+                        onPaste={onPaste}
                     />
                 </Text>
             </Containers.LabelContainer>
@@ -67,6 +69,7 @@ Input.propTypes = {
     type: PropTypes.string,
     name: PropTypes.string,
     onChange: PropTypes.func,
+    onPaste: PropTypes.func,
     disabled: PropTypes.bool,
 };
 

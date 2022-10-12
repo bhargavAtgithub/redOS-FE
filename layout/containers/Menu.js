@@ -20,7 +20,7 @@ const MenuContainer = styled.nav`
 
     transition: all 0.5s ease-out;
 
-    background-color: ${(props) => props.theme.colors['BASE']};
+    background-color: ${(props) => props.theme.colors['BASE'][0]};
 
     overflow-y: ${(props) => (props.open ? 'scroll' : 'none')};
 

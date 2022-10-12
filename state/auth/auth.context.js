@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { createContext, useEffect, useState } from 'react';
+import { useToast } from '../../components/app';
 
 const defaultState = {
     user: {},
@@ -17,12 +18,14 @@ const PROVIDERS = {
     EMAIL: '',
     GITHUB: 'github',
     GOOGLE: 'google',
-    TWITTER: 'twitters',
+    TWITTER: 'twitter',
 };
 
 export const AuthProvider = ({ children }) => {
     const router = useRouter();
+    const toast = useToast();
     const [loading, setLoading] = useState(true);
+    const [signing, setSigning] = useState(false);
     const [session, setSession] = useState(true);
     const [user, setUser] = useState(defaultState.user);
 
@@ -113,10 +116,12 @@ export const AuthProvider = ({ children }) => {
                     throw error;
                 } else {
                     getProfile();
+                    toast({
+                        message: 'Profile Updated',
+                    });
                 }
             }
         } catch (error) {
-            console.log(error);
             return {
                 error,
             };
@@ -125,10 +130,15 @@ export const AuthProvider = ({ children }) => {
 
     const signUp = async ({ email, password, ...userDetails }) => {
         try {
+            setSigning(true);
             const { user, session, error } = await supabase.auth.signUp({
                 email,
                 password,
             });
+
+            if (error) {
+                throw error;
+            }
 
             let current_user = {
                 user_id: user.id,
@@ -141,36 +151,69 @@ export const AuthProvider = ({ children }) => {
                     router.push(`/profile`);
                 }
             });
-
-            if (error) {
-                throw error;
-            }
         } catch (error) {
-            return {
-                error: error,
-            };
+            console.log(error);
+            setSigning(false);
+            if (error.message) {
+                toast({
+                    message: error.message,
+                });
+            } else {
+                return {
+                    error: error,
+                };
+            }
         }
     };
 
     const signIn = async (provider, email, password) => {
         try {
-            const { user, session, error } = await supabase.auth.signIn({
-                email,
-                password,
-                provider,
-            });
+            setSigning(true);
+            let signInObj = {};
+            if (provider === PROVIDERS.GITHUB) {
+                signInObj = {
+                    provider: PROVIDERS.GITHUB,
+                };
+            } else if (provider === PROVIDERS.GOOGLE) {
+                signInObj = {
+                    provider: PROVIDERS.GOOGLE,
+                };
+            } else if (provider === PROVIDERS.TWITTER) {
+                signInObj = {
+                    provider: PROVIDERS.TWITTER,
+                };
+            } else {
+                signInObj = {
+                    email: email,
+                    password: password,
+                };
+            }
+            const { user, session, error } = await supabase.auth.signIn(
+                signInObj
+            );
 
             if (error) {
                 throw error;
             }
 
             getProfile((data) => {
+                setSigning(false);
                 if (data == null) {
                     router.push(`/profile`);
                 }
             });
         } catch (error) {
             console.log(error);
+            setSigning(false);
+            if (error.status == 400) {
+                toast({
+                    message: error.message,
+                });
+            } else {
+                return {
+                    error: error,
+                };
+            }
         }
     };
 
@@ -204,6 +247,7 @@ export const AuthProvider = ({ children }) => {
                 getProfile,
                 PROVIDERS,
                 loading,
+                signing,
             }}
         >
             {children}

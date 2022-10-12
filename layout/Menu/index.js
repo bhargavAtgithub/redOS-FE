@@ -17,6 +17,7 @@ import { ChatContainer, StickerContainer, StickerLink } from './ItemContainers';
 import { useTheme } from 'styled-components';
 import useCursor from '../../tokens/cursor/useCursor';
 
+import Link from 'next/link';
 import * as ItemContainers from './Container';
 import GridContainer from './GridContainer';
 import * as GridItems from './GridItems';
@@ -100,7 +101,11 @@ const MenuGrid = () => {
                     target={'_blank'}
                 >
                     <StickerContainer>
-                        <Image src="/icons/fambaseLogo.png" layout="fill" />
+                        <Image
+                            src="/icons/fambaseLogo.png"
+                            layout="fill"
+                            priority={true}
+                        />
                     </StickerContainer>
                     <Spacer y={[5]} />
                     <Icon
@@ -125,11 +130,13 @@ const MenuGrid = () => {
                 </Text>
             </GridItems.GridItem>
             <GridItems.ContentGridItem />
-            <GridItems.GridItem>
-                <Icon size={['xl', 'xxl']} border={false}>
-                    <Bookmark />
-                </Icon>
-            </GridItems.GridItem>
+            <Link href={'/bookmarks'} as="/bookmarks">
+                <GridItems.GridItem>
+                    <Icon size={['xl', 'xxl']} border={false}>
+                        <Bookmark />
+                    </Icon>
+                </GridItems.GridItem>
+            </Link>
             <GridItems.RedOsGridItem>
                 <Text size={['rg', 'md']} weight="b" color="RED">
                     red
@@ -146,7 +153,11 @@ const MenuGrid = () => {
             </GridItems.GridItem>
             <GridItems.GridItem>
                 <ChatContainer>
-                    <Image src="/icons/chatIcon.png" layout="fill" />
+                    <Image
+                        src="/icons/chatIcon.png"
+                        layout="fill"
+                        priority={true}
+                    />
                 </ChatContainer>
             </GridItems.GridItem>
             <GridItems.GridItem>
