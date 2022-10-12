@@ -119,25 +119,25 @@ const MenuGrid = () => {
                     </Icon>
                 </StickerLink>
             </GridItems.GridItem>
-            <GridItems.GridItem>
+            <GridItems.GridItem shipped={'DEVELOPMENT'}>
                 <Text size={['lg', 'xl']} weight="md">
                     Stack
                 </Text>
             </GridItems.GridItem>
-            <GridItems.GridItem>
+            <GridItems.GridItem shipped={'DEVELOPMENT'}>
                 <Text size={['lg', 'xl']} weight="md">
                     Timeline
                 </Text>
             </GridItems.GridItem>
             <GridItems.ContentGridItem />
             <Link href={'/bookmarks'} as="/bookmarks">
-                <GridItems.GridItem>
+                <GridItems.GridItem shipped={'SHIPPED'}>
                     <Icon size={['xl', 'xxl']} border={false}>
                         <Bookmark />
                     </Icon>
                 </GridItems.GridItem>
             </Link>
-            <GridItems.RedOsGridItem>
+            <GridItems.RedOsGridItem shipped={'DEVELOPMENT'}>
                 <Text size={['rg', 'md']} weight="b" color="RED">
                     red
                 </Text>
@@ -145,13 +145,13 @@ const MenuGrid = () => {
                     OS
                 </Text>
             </GridItems.RedOsGridItem>
-            <GridItems.MediaGridItem />
-            <GridItems.GridItem>
+            <GridItems.MediaGridItem shipped={'DEVELOPMENT'} />
+            <GridItems.GridItem shipped={'DEVELOPMENT'}>
                 <Icon size={['xl', 'xxl']} border={false}>
                     <Book />
                 </Icon>
             </GridItems.GridItem>
-            <GridItems.GridItem>
+            <GridItems.GridItem shipped={'DEVELOPMENT'}>
                 <ChatContainer>
                     <Image
                         src="/icons/chatIcon.png"
@@ -159,6 +159,7 @@ const MenuGrid = () => {
                         priority={true}
                     />
                 </ChatContainer>
+                <Spacer />
             </GridItems.GridItem>
             <GridItems.GridItem>
                 <ItemContainers.ThemeIconContainer

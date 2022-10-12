@@ -18,6 +18,50 @@ export const GridItem = styled.li`
             : props.theme.colors['CARD'][0]};
     border: 1px solid ${(props) => props.theme.colors['BORDER'][0]};
     border-radius: 4rem;
+
+    transition: all 0.4s;
+
+    &:after {
+        position: absolute;
+        bottom: 0rem;
+        content: '';
+        font-size: 1.4rem;
+        color: ${(props) => props.theme.colors['STORM'][1]};
+        transition: all 0.4s;
+    }
+
+    ${(props) =>
+        props.shipped === 'SHIPPED'
+            ? `
+        &:hover {
+            border: 1px solid ${props.theme.colors['SPEARMINT'][1]};
+            box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+
+            &:after {
+                position: absolute;
+                bottom: 2rem;
+                content: 'Shipped!';
+                font-size: 1.4rem;
+                color: ${props.theme.colors['SPEARMINT'][1]}
+            }
+        }
+        `
+            : props.shipped === 'DEVELOPMENT'
+            ? `&:hover {
+            border: 1px solid ${props.theme.colors['STORM'][1]};
+            box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+
+            &:after {
+                position: absolute;
+                bottom: 2rem;
+                content: 'Under development!';
+                font-size: 1.4rem;
+                color: ${props.theme.colors['STORM'][1]}
+            }
+        }`
+            : null}
 `;
 
 export const SocialGrid = styled.div`
