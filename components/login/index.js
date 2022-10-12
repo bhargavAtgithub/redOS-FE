@@ -64,7 +64,7 @@ const LoginScreen = () => {
                 <Button
                     size={'rg'}
                     varient={!signIn ? 1 : 2}
-                    title={'Sign In'}
+                    title={'Sign Up'}
                     width={'flex'}
                     onClick={() => setSignIn(false)}
                 />
