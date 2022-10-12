@@ -23,7 +23,6 @@ const FooterContainer = () => {
                                     theme.darkMode ? 'dark' : 'light'
                                 }.png`}
                                 layout="fill"
-                                priority={true}
                             />
                         </Containers.LogoWrapper>
                     </Containers.LogoContainer>

@@ -101,11 +101,7 @@ const MenuGrid = () => {
                     target={'_blank'}
                 >
                     <StickerContainer>
-                        <Image
-                            src="/icons/fambaseLogo.png"
-                            layout="fill"
-                            priority={true}
-                        />
+                        <Image src="/icons/fambaseLogo.png" layout="fill" />
                     </StickerContainer>
                     <Spacer y={[5]} />
                     <Icon
@@ -153,11 +149,7 @@ const MenuGrid = () => {
             </GridItems.GridItem>
             <GridItems.GridItem shipped={'DEVELOPMENT'}>
                 <ChatContainer>
-                    <Image
-                        src="/icons/chatIcon.png"
-                        layout="fill"
-                        priority={true}
-                    />
+                    <Image src="/icons/chatIcon.png" layout="fill" />
                 </ChatContainer>
                 <Spacer />
             </GridItems.GridItem>
