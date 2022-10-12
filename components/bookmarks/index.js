@@ -5,7 +5,7 @@ import { Form, FormContainer } from '../containers';
 
 import { useApp, useAuth } from '../../state';
 import { useToast } from '../app';
-import MetaCard from '../MetaCard/metacard.component';
+import MetaCard from '../metaCard/metacard.component';
 import * as Containers from './bookmarks.container';
 import { BookmarksContext } from './bookmarks.context';
 
