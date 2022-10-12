@@ -1,5 +1,7 @@
 export default async function handler(req, res) {
     if (req.query.secret !== process.env.REVALIDATE_SECRET) {
+        console.log(req.query.secret);
+        console.log(process.env.REVALIDATE_SECRET);
         return res.status(401).json({ message: 'Invalid token' });
     }
 

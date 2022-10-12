@@ -66,19 +66,18 @@ const BookmarksProvider = ({ bookmarks, children }) => {
 
             const { data, error: revalidate_error } = await supabase
                 .from('secrets')
-                .select()
-                .eq('key', revalidate_secret)
+                .select('secret')
+                .eq('key', 'revalidate_secret')
                 .limit(1);
 
             if (revalidate_error) {
                 throw revalidate_error;
             }
 
-            const { revalidate_secret } = data;
+            const { secret: revalidate_secret } = data[0];
+            console.log(revalidate_secret);
             let isrResponse = await app.hello({
-                url:
-                    '/api/revalidate?secret=' +
-                    revalidate_secret[0].revalidate_secret,
+                url: '/api/revalidate?secret=' + revalidate_secret,
             });
             console.log(isrResponse);
         } catch (error) {
