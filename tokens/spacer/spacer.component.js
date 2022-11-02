@@ -37,7 +37,7 @@ const SpacerStyles = styled.div`
                   }rem;
              width: ${
                  typeof props.x === 'object' && props.x !== null
-                     ? props.x[Number(props.length > 1)]
+                     ? props.x[Number(props.x.length > 1)]
                      : 1
              }rem;`}
     }

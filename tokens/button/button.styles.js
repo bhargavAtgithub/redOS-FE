@@ -19,7 +19,7 @@ const styles = {
         }
         return 'transparent';
     },
-    hoverBackground: ({ theme, color, varient }) => {
+    hoverBackground: ({ theme, color, varient, type }) => {
         return theme.colors[color][3];
     },
     activeBackground: ({ theme, color, varient }) => {
@@ -73,6 +73,7 @@ const ButtonStyles = styled.button`
 
     &:hover {
         background: ${styles.hoverBackground};
+        cursor: pointer;
     }
 
     &:active {

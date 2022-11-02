@@ -81,6 +81,10 @@ export const SocialGridItem = styled(GridItem)`
 `;
 
 export const ContentGridItem = styled(GridItem)`
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
     grid-area: 3 / 1 / 4 / -1;
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {

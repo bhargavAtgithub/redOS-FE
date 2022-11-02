@@ -9,7 +9,7 @@ const MenuContainer = styled.nav`
     align-items: center;
     justify-content: flex-start;
 
-    padding: 12rem 0rem;
+    padding: 12rem 0rem 16rem;
 
     position: fixed;
     left: 0;
@@ -22,7 +22,7 @@ const MenuContainer = styled.nav`
 
     background-color: ${(props) => props.theme.colors['BASE'][0]};
 
-    overflow-y: ${(props) => (props.open ? 'scroll' : 'none')};
+    overflow-y: ${(props) => (props.open ? 'scroll' : 'auto')};
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
         top: ${(props) => (props.open ? '0%' : '90%')};

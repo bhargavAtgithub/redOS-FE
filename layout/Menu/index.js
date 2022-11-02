@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Arrow,
     Book,
@@ -12,10 +12,14 @@ import {
     Twitter,
 } from '../../icons';
 import { Icon, Spacer, Text, Toggle } from '../../tokens';
-import { ChatContainer, StickerContainer, StickerLink } from './ItemContainers';
+import {
+    BlogContainer,
+    ChatContainer,
+    StickerContainer,
+    StickerLink,
+} from './ItemContainers';
 
 import { useTheme } from 'styled-components';
-import useCursor from '../../tokens/cursor/useCursor';
 
 import Link from 'next/link';
 import * as ItemContainers from './Container';
@@ -24,8 +28,6 @@ import * as GridItems from './GridItems';
 
 const MenuGrid = () => {
     const theme = useTheme();
-    const cursor = useCursor();
-    const [mouseOnToggle, setMouseOnToggle] = useState();
 
     return (
         <GridContainer>
@@ -125,7 +127,29 @@ const MenuGrid = () => {
                     Timeline
                 </Text>
             </GridItems.GridItem>
-            <GridItems.ContentGridItem />
+            <Link
+                href={'https://blog.bhargav.red'}
+                as="https://blog.bhargav.red"
+            >
+                <GridItems.ContentGridItem>
+                    <BlogContainer>
+                        <Text size={['xl']} weight="md">
+                            Blogging
+                        </Text>
+                        <Text>@hashnode</Text>
+                    </BlogContainer>
+                    <Spacer x={[8, 16]} />
+                    <Icon
+                        size={['rg']}
+                        rotate={320}
+                        hoverColor={'RED'}
+                        hover={true}
+                        hideCursor={true}
+                    >
+                        <Arrow />
+                    </Icon>
+                </GridItems.ContentGridItem>
+            </Link>
             <Link href={'/bookmarks'} as="/bookmarks">
                 <GridItems.GridItem shipped={'SHIPPED'}>
                     <Icon size={['xl', 'xxl']} border={false}>

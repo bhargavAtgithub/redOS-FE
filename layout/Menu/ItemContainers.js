@@ -32,4 +32,11 @@ const ChatContainer = styled.div`
     }
 `;
 
-export { StickerContainer, StickerLink, ChatContainer };
+const BlogContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+`;
+
+export { StickerContainer, StickerLink, ChatContainer, BlogContainer };
