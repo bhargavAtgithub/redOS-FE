@@ -49,7 +49,7 @@ const BaseLayout = ({ children }) => {
                 ) : (
                     children
                 )}
-
+                
                 <Containers.MenuContainer open={openMenu}>
                     <MenuGrid />
                     <Spacer y={[2, 10]} x={[5]} />
