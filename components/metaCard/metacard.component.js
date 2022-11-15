@@ -42,7 +42,7 @@ const MetaCard = ({ meta }) => {
                             )}
                             {meta.description && (
                                 <>
-                                    <Text size={['sm']} maxLines={3}>
+                                    <Text size={['sm']}>
                                         {meta.description}
                                     </Text>
                                     <Spacer y={[1]} />

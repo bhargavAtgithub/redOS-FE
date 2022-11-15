@@ -22,7 +22,7 @@ const MenuContainer = styled.nav`
 
     background-color: ${(props) => props.theme.colors['BASE'][0]};
 
-    overflow-y: ${(props) => (props.open ? 'scroll' : 'auto')};
+    overflow-y: ${(props) => (props.open ? 'scroll' : 'hidden')};
 
     @media (min-width: ${(props) => props.theme.devices.lg}) {
         top: ${(props) => (props.open ? '0%' : '90%')};

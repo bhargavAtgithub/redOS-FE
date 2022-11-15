@@ -113,7 +113,7 @@ export const TextStylesContainer = styled.div`
     }
 
     &::after {
-        content: '${styles.ellipsis}';
+        // content: '${styles.ellipsis}';
         position: absolute;
         bottom: 0rem;
         right: 0.2rem;

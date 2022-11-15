@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Meta from '../components/meta';
 import { useAuth } from '../state';
@@ -18,10 +18,12 @@ const BaseLayout = ({ children }) => {
     const router = useRouter();
     const [mouseOnCross, setMouseOnCross] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
+    const menuRef = useRef(null);
 
     useEffect(() => {
         if (openMenu) {
             setOpenMenu(!openMenu);
+            menuRef.current.scrollTop = 0;
         }
     }, [router.asPath]);
 
@@ -49,8 +51,8 @@ const BaseLayout = ({ children }) => {
                 ) : (
                     children
                 )}
-                
-                <Containers.MenuContainer open={openMenu}>
+
+                <Containers.MenuContainer open={openMenu} ref={menuRef}>
                     <MenuGrid />
                     <Spacer y={[2, 10]} x={[5]} />
                     <Containers.FooterContainer />
