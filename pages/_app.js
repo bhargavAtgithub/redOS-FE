@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import React, { useState } from 'react';
 import ToastProvider from '../components/app/toast/toast.context';
 import BaseLayout from '../layout';
@@ -18,28 +19,33 @@ function MyApp({ Component, pageProps }) {
     };
 
     return (
-        <ThemeProvider
-            theme={{
-                colors: darkMode ? themeBox.dark_theme : themeBox.light_theme,
-                darkMode: darkMode,
-                toggleTheme: toggleTheme,
-                ...themeBox,
-            }}
-        >
-            <ToastProvider>
-                <GlobalStyles />
-                <CursorProvider>
-                    <Cursor />
-                    <AuthProvider>
-                        <AppProvider>
-                            <BaseLayout>
-                                <Component {...pageProps} />
-                            </BaseLayout>
-                        </AppProvider>
-                    </AuthProvider>
-                </CursorProvider>
-            </ToastProvider>
-        </ThemeProvider>
+        <>
+            <ThemeProvider
+                theme={{
+                    colors: darkMode
+                        ? themeBox.dark_theme
+                        : themeBox.light_theme,
+                    darkMode: darkMode,
+                    toggleTheme: toggleTheme,
+                    ...themeBox,
+                }}
+            >
+                <ToastProvider>
+                    <GlobalStyles />
+                    <CursorProvider>
+                        <Cursor />
+                        <AuthProvider>
+                            <AppProvider>
+                                <BaseLayout>
+                                    <Component {...pageProps} />
+                                </BaseLayout>
+                            </AppProvider>
+                        </AuthProvider>
+                    </CursorProvider>
+                </ToastProvider>
+            </ThemeProvider>
+            <Analytics />
+        </>
     );
 }
 
