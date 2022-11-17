@@ -8,7 +8,10 @@ const Cursor = () => {
 
     return (
         <>
-            <CursorStyle ref={cursor.cursor}>
+            <CursorStyle
+                ref={cursor.cursor}
+                defaultCursor={cursor.defaultCursor}
+            >
                 <Image src="/assets/cursor.png" layout="fill" priority={true} />
             </CursorStyle>
         </>

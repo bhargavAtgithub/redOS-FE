@@ -84,11 +84,10 @@ const CursorProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
+        toggleHidden(false);
         if (router.asPath.includes('projects')) {
+            theme.toggleDefaultCursor();
             toggleHidden(true);
-            theme.cursorDisplay = false;
-        } else {
-            toggleHidden(false);
         }
     }, [router.pathname, router.asPath]);
 

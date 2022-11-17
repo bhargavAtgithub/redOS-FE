@@ -13,9 +13,14 @@ import { AuthProvider } from '../state/auth/auth.context';
 
 function MyApp({ Component, pageProps }) {
     const [darkMode, setDarkMode] = useState(false);
+    const [defaultCursor, setDefaultCursor] = useState(false);
 
     const toggleTheme = () => {
         setDarkMode(!darkMode);
+    };
+
+    const toggleDefaultCursor = () => {
+        setDefaultCursor(!defaultCursor);
     };
 
     return (
@@ -27,7 +32,8 @@ function MyApp({ Component, pageProps }) {
                         : themeBox.light_theme,
                     darkMode: darkMode,
                     toggleTheme: toggleTheme,
-                    cursorDisplay: true,
+                    defaultCursor: defaultCursor,
+                    toggleDefaultCursor: toggleDefaultCursor,
                     ...themeBox,
                 }}
             >

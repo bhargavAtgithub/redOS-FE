@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-        cursor: ${(props) => (props.theme.cursorDisplay ? 'none' : 'auto')};
+        cursor: ${(props) => (props.theme.defaultCursor ? 'auto' : 'none')};
 
         -ms-overflow-style: none;  /* Internet Explorer 10+ */
         scrollbar-width: none;
