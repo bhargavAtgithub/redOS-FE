@@ -11,6 +11,7 @@ import Instagram from './instagram';
 import LinkedIn from './linkedin';
 import Moon from './moon';
 import Password from './password';
+import Search from './search';
 import Sun from './sun';
 import Twitter from './twitter';
 
@@ -30,4 +31,5 @@ export {
     Bookmark,
     Book,
     Chat,
+    Search,
 };

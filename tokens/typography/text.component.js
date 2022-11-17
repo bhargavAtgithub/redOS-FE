@@ -123,6 +123,13 @@ export const TextStylesContainer = styled.div`
         font-size: ${styles.lgSize}rem;
         line-height: ${styles.lgHeight}rem;
     }
+
+    cursor: ${(props) =>
+        props.cursor
+            ? props.cursor
+            : props.theme.cursorDisplay
+            ? 'hidden'
+            : 'auto'};
 `;
 
 const Text = (props) => (
@@ -159,6 +166,7 @@ Text.propTypes = {
     maxLines: PropTypes.number,
     hoverBackground: PropTypes.string,
     transform: PropTypes.oneOf(['uppercase', 'lowercase', 'capitalize']),
+    cursor: PropTypes.string,
 };
 
 export default Text;

@@ -23,9 +23,18 @@ const BaseLayout = ({ children }) => {
     useEffect(() => {
         if (openMenu) {
             setOpenMenu(!openMenu);
-            menuRef.current.scrollTop = 0;
         }
     }, [router.asPath]);
+
+    useEffect(() => {
+        if (!openMenu && menuRef.current) {
+            menuRef.current.scrollTop = 0;
+        }
+    }, [openMenu]);
+
+    if (router.asPath.includes('projects')) {
+        return children;
+    }
 
     return (
         <>
@@ -70,8 +79,8 @@ const BaseLayout = ({ children }) => {
                         >
                             <Icon
                                 hideCursor={true}
-                                color={mouseOnCross ? 'RED' : ''}
-                                iconColor={mouseOnCross ? 'RED' : ''}
+                                hoverColor={'RED'}
+                                hover={true}
                             >
                                 {openMenu ? <Cross /> : <ArrowUp />}
                             </Icon>

@@ -17,7 +17,6 @@ const GridContainer = styled.ul`
         grid-template-columns: repeat(4, 30rem);
         grid-template-rows: repeat(4, 30rem);
     }
-
-=`;
+`;
 
 export default GridContainer;

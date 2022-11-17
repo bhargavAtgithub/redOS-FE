@@ -1,5 +1,5 @@
-import { RED_THEME, DARK_THEME } from './themes';
 import { DEVICES } from './media-queries';
+import { DARK_THEME, RED_THEME } from './themes';
 
 export default {
     light_theme: RED_THEME,

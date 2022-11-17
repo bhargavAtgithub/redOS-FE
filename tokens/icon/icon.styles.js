@@ -14,6 +14,10 @@ const styles = {
         return 'none';
     },
     background: ({ theme, color, background }) => {
+        // if (backgroundColor !== '') {
+        //     console.log(backgroundColor);
+        //     return theme.colors[backgroundColor][1];
+        // }
         if (background) {
             if (color) {
                 return theme.colors[color][1];

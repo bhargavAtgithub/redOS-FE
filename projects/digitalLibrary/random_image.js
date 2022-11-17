@@ -1,17 +1,29 @@
 import React from 'react';
 
-import { BookImage } from './card.component';
-import { Categories } from './containers';
+import { BookImage, ImageContainer, ImageOverlay } from './card.component';
 
-const RandomImageContainer = () => (
-    <Categories>
+import { Text } from '../../tokens';
+
+const RandomImageContainer = ({ title, onClick }) => (
+    <ImageContainer onClick={onClick}>
         <BookImage
             src={`https://picsum.photos/id/${Math.floor(
                 Math.random() * 100
             )}/200`}
             alt={''}
         />
-    </Categories>
+        <ImageOverlay>
+            <Text
+                size={['xl']}
+                weight={'b'}
+                color="SNOW"
+                align={'center'}
+                cursor="pointer"
+            >
+                {title}
+            </Text>
+        </ImageOverlay>
+    </ImageContainer>
 );
 
 export default RandomImageContainer;

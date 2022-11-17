@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }) {
                         : themeBox.light_theme,
                     darkMode: darkMode,
                     toggleTheme: toggleTheme,
+                    cursorDisplay: true,
                     ...themeBox,
                 }}
             >

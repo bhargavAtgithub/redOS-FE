@@ -1,38 +1,87 @@
 import styled from 'styled-components';
 
-export const TopContainer = styled.div`
+export const MainContainer = styled.div`
     width: 100%;
-    height: 40rem;
+    min-height: 100vh;
 
-    border-radius: 2rem;
+    position: relative;
 
-    background-color: ${(props) => props.theme.colors['FRENCH_PASS'][3]};
+    background-color: ${(props) => props.theme.colors['SNOW'][1]};
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    @media (min-width: ${(props) => props.theme.devices.lg}) {
+    }
 `;
 
-export const CategoriesRow = styled.div`
+export const BannerContainer = styled.div`
     width: 100%;
+    height: 20rem;
+
+    position: relative;
+
+    background-color: ${(props) => props.theme.colors['FRENCH_PASS'][3]};
+
+    @media (min-width: ${(props) => props.theme.devices.lg}) {
+        height: 40rem;
+    }
+`;
+
+export const CategoriesColumn = styled.div`
+    width: 100%;
+    height: 90rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    @media (min-width: ${(props) => props.theme.devices.lg}) {
-        flex-direction: row;
-    }
+    padding: 0 16rem;
+
+    background-color: ${(props) => props.theme.colors['FRENCH_PASS'][3]};
+`;
+
+export const CategoryHeader = styled.div`
+    width: 140rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+export const CategoriesRow = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const CategoriesSubCol = styled.div`
+    width: 70rem;
+    height: 70rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const CategoriesContainer = styled.div`
-    padding: 1rem;
-    display: grid;
+    padding: 0.5rem;
+    display: flex;
 
-    border-radius: 2rem;
+    background-color: ${(props) => props.theme.colors['SNOW'][1]};
+`;
 
-    grid-template-columns: repeat(2, 18rem);
-    grid-template-rows: repeat(2, 18rem) 4rem;
+export const RectangleContainer = styled(CategoriesContainer)`
+    width: 100%;
+    height: 30rem;
+`;
 
-    background-color: ${(props) => props.theme.colors['FRENCH_PASS'][3]};
-
-    gap: 1rem 1rem;
+export const SquareContainer = styled(CategoriesContainer)`
+    width: 35rem;
+    height: 35rem;
 `;
 
 export const CategoryTitle = styled.div`
@@ -44,8 +93,9 @@ export const CategoryTitle = styled.div`
 `;
 
 export const Categories = styled.div`
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    border-radius: 2rem;
     background-color: ${(props) => props.theme.colors['DARK_SKY'][3]};
 `;
 
@@ -89,3 +139,9 @@ export const ColumnContainer = styled.div`
     justify-content: flex-start;
 `;
 
+export const Footer = styled.div`
+    width: 100%;
+    height: 30rem;
+
+    background-color: ${(props) => props.theme.colors['FRENCH_PASS'][3]};
+`;

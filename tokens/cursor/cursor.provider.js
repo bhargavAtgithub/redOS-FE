@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from 'styled-components';
 import CursorContext from './cursor.context';
 
 const CursorProvider = ({ children }) => {
     const cursor = useRef(null);
     const router = useRouter();
+    const theme = useTheme();
 
     const cursorVisible = useRef(true);
     const cursorEnlarged = useRef(false);
@@ -83,7 +85,12 @@ const CursorProvider = ({ children }) => {
 
     useEffect(() => {
         toggleHidden(false);
-    }, [router.pathname]);
+
+        if (router.asPath.includes('projects')) {
+            toggleHidden(true);
+            theme.cursorDisplay = false;
+        }
+    }, [router.pathname, router.asPath]);
 
     return (
         <CursorContext.Provider value={{ cursor, toggleHidden }}>
