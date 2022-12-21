@@ -127,7 +127,7 @@ export const TextStylesContainer = styled.div`
     cursor: ${(props) =>
         props.cursor
             ? props.cursor
-            : props.theme.cursorDisplay
+            : !props.theme.defaultCursor
             ? 'hidden'
             : 'auto'};
 `;

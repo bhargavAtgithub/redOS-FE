@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { Avatar, Spacer, Text } from '../../tokens';
 import * as Styles from './bio.styles';
 
+import useCursor from '../../tokens/cursor/useCursor';
+
 const BioScreen = () => {
+    const cursor = useCursor();
+
     return (
         <Styles.BioContainer>
             {' '}
@@ -29,18 +33,20 @@ const BioScreen = () => {
             <Styles.TextContainer>
                 <Text>
                     Currently working at{' '}
-                    <Link href="https://www.terriblytinytales.com/" passHref>
+                    <Link href="https://hashnode.com/" passHref>
                         <a target="_blank">
-                            <Text hoverBackground={'RED'} weight={'md'}>
-                                Terribly Tiny Tales{' '}
-                            </Text>
-                        </a>
-                    </Link>{' '}
-                    building{' '}
-                    <Link href="https://fambase.com/in" passHref>
-                        <a target="_blank">
-                            <Text hoverBackground={'RED'} weight="md">
-                                Fambase
+                            <Text
+                                hoverBackground={'RED'}
+                                onMouseEnter={() => {
+                                    cursor.toggleHidden(true);
+                                }}
+                                onMouseLeave={() => {
+                                    cursor.toggleHidden(false);
+                                }}
+                                weight={'md'}
+                                cursor="hidden"
+                            >
+                                Hashnode{' '}
                             </Text>
                         </a>
                     </Link>
